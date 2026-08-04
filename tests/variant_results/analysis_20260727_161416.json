@@ -1,0 +1,31 @@
+{
+  "headline": "Your Heart Deserves Daily Care.",
+  "subheadline": "Arjuna Bark — For a Healthy Heart",
+  "price": "₹599",
+  "cta_text": "Buy Now",
+  "offer_text": null,
+  "extra_texts": [
+    "Dr. Bimal's",
+    "Formulated by",
+    "Dr. Bimal Chhajer, MBBS, MD",
+    "Month 1:",
+    "Arjuna bark helps maintain healthy lipid levels.",
+    "Month 2:",
+    "Arjuna bark supports the heart’s antioxidant capacity.",
+    "Month 3:",
+    "Arjuna bark supports healthy blood vessel function.",
+    "One Cup. Every Morning.",
+    "Dr. Bimal Chhajer",
+    "MBBS, MD",
+    "| 50 Tea Bags"
+  ],
+  "color_palette": {
+    "primary": "#FAF7EF",
+    "secondary": "#476C44",
+    "text_color": "#3D543B"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "Medium-large photo of a male doctor on the right side, wearing a suit with arms crossed, located above the product box.",
+  "layout_type": "two_column",
+  "ad_description": "An informative advertisement promoting a heart care tea, featuring a doctor's endorsement, a timeline of product benefits, and a prominent display of the product packaging."
+}

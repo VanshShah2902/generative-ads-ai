@@ -1,0 +1,29 @@
+{
+  "headline": "Dr. Bimal's अर्जुन कार्डिओ केयर चाय",
+  "subheadline": null,
+  "price": "₹599",
+  "cta_text": null,
+  "offer_text": "24% छूट",
+  "extra_texts": [
+    "डॉ. बिमल छाजेर (MBBS, MD) द्वारा निर्मित",
+    "अर्जुन छाल",
+    "२४०mg/सैश",
+    "स्वस्थ कोलेस्ट्रॉल स्तर बनाए रखने में मदद करती है",
+    "तुलसी",
+    "७५mg/सैश",
+    "दैनिक तनाव अनुकूलन में मदद करती है",
+    "लवंग",
+    "८३mg/सैश",
+    "रोगप्रतिकारक शक्ति बनाए रखने में मदद करती है",
+    "50 सैशे"
+  ],
+  "color_palette": {
+    "primary": "#4a8f90",
+    "secondary": "#d4af37",
+    "text_color": "#24524c"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "large photo of the doctor on the left side, arms crossed",
+  "layout_type": "two_column",
+  "ad_description": "An ad for Dr. Bimal's Arjun Cardio Care Tea featuring a doctor's photo, product box, and a breakdown of key ingredients and their benefits in a two-column layout."
+}

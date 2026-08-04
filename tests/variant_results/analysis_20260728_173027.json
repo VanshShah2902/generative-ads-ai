@@ -1,0 +1,22 @@
+{
+  "headline": "ওঁকে উপহার দিন ৫০ দিনের হৃদয়ের যত্ন।",
+  "subheadline": "হাজারের বিশ্বাস। আয়ুর্বেদের ভরসা।",
+  "price": "₹599",
+  "cta_text": "ওঁর জন্য অর্ডার করুন",
+  "offer_text": "24% OFF",
+  "extra_texts": [
+    "৫০ স্যাশে",
+    "MRP ₹750",
+    "Dr. Bimal Chhajer (MBBS, MD)",
+    "100g | 50 Enveloped Tea Bags"
+  ],
+  "color_palette": {
+    "primary": "#798D69",
+    "secondary": "#C79D4C",
+    "text_color": "#3A4736"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "circular photo on the right side, medium size",
+  "layout_type": "hero_product",
+  "ad_description": "The ad showcases a box of 'Arjuna Cardio Care Tea' and a teacup, emphasizing a special offer and the endorsement of Dr. Bimal Chhajer, set against a natural, green-toned background."
+}

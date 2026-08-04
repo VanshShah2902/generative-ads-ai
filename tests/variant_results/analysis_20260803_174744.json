@@ -1,0 +1,29 @@
+{
+  "headline": "अर्जुन छाल\nमहिना दर महिना दिलाची काळजी घेते",
+  "subheadline": "अर्जुन छाल • रोज दोन कप प्या",
+  "price": "₹५९९",
+  "cta_text": "आता खरेदी करा",
+  "offer_text": null,
+  "extra_texts": [
+    "Dr. Bimal's",
+    "Jaadu Diet",
+    "डॉ. बिमल छाजेर / MBBS, MD",
+    "५० टी बॅग्स",
+    "पहिला महिना",
+    "वाईट कोलेस्ट्रॉल कमी करण्यास मदत करण्यास सुरुवात होते",
+    "दुसरा महिना",
+    "दिलाला अँटीऑक्सिडंट संरक्षण मिळते",
+    "तिसरा महिना",
+    "दिलाच्या नसा निरोगी राहण्यास मदत होते",
+    "फक्त दोन कप. रोज. बस."
+  ],
+  "color_palette": {
+    "primary": "#7C4A9D",
+    "secondary": "#EBAA33",
+    "text_color": "#381F6D"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "large, half-body photo of a smiling doctor on the left side of the ad, wearing a suit and glasses.",
+  "layout_type": "two_column",
+  "ad_description": "The ad features a doctor endorsing a herbal tea product, showcasing its benefits over three months with a prominent doctor and product in a two-column layout at the top, and a grid-like structure for monthly benefits at the bottom."
+}

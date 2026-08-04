@@ -1,0 +1,58 @@
+{
+  "method": "LOCAL (YOLO + OCR + OpenCV)",
+  "image_size": "1024x1024",
+  "aspect_ratio": 1.0,
+  "visual": {
+    "brightness": 50.9,
+    "brightness_level": "dark",
+    "contrast": 8.6,
+    "dominant_color": "dark/black",
+    "color_palette_hex": [
+      "#313131",
+      "#0078d7",
+      "#969696",
+      "#d1e6f7",
+      "#b1b3b5"
+    ],
+    "color_variance": 12.9
+  },
+  "layout": {
+    "busy_regions": [],
+    "empty_regions": [
+      "top_left",
+      "top_center",
+      "top_right",
+      "mid_left",
+      "mid_center",
+      "mid_right",
+      "bot_left",
+      "bot_center",
+      "bot_right"
+    ],
+    "region_densities": {
+      "top_left": 0.0,
+      "top_center": 0.0041,
+      "top_right": 0.0,
+      "mid_left": 0.002,
+      "mid_center": 0.0248,
+      "mid_right": 0.0068,
+      "bot_left": 0.0,
+      "bot_center": 0.0057,
+      "bot_right": 0.0
+    }
+  },
+  "objects": {
+    "count": 0,
+    "person_present": false,
+    "detected": []
+  },
+  "text": {
+    "error": "tesseract is not installed or it's not in your PATH. See README file for more information."
+  },
+  "concept_guess": [
+    "dark/dramatic aesthetic",
+    "minimal layout"
+  ],
+  "time_seconds": 4.2,
+  "cost": "$0.00"
+}

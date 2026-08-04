@@ -1,0 +1,34 @@
+{
+  "headline": "६-इन-१ आयुर्वेदिक फ़ॉर्मूला",
+  "subheadline": "दिल का ख्याल रखो हर रोज़",
+  "price": "₹599",
+  "cta_text": "अभी ख़रीदें →",
+  "offer_text": null,
+  "extra_texts": [
+    "Dr. Bimal's",
+    "Jaadu Diet",
+    "डॉ. बिमल छाजेर / MBBS, MD",
+    "STRENGTHENS HEART & SUPPORTS HEART HEALTH",
+    "HELPS MAINTAIN HEALTHY BLOOD PRESSURE & SUPPORT PROFESSIONAL LEVELS",
+    "SUPPORTS OVERALL WELL-BEING & NATURAL DETOXIFICATION",
+    "AIDS RELAXATION & STRESS RELIEF & MENTAL WELLNESS",
+    "SUPPORTS HEALTHY CIRCULATION & CARDIOVASCULAR RHYTHM",
+    "अर्जुन छाल",
+    "बुरे कोलेस्ट्रॉल को कम करने में मदद करे",
+    "अश्वगंधा",
+    "स्ट्रेस कम करने में मदद करे",
+    "दालचीनी",
+    "ब्लड शुगर कंट्रोल में मदद करे",
+    "ग्रीन टी",
+    "दिल की नसें स्वस्थ रखे"
+  ],
+  "color_palette": {
+    "primary": "#F4E8F8",
+    "secondary": "#F9D889",
+    "text_color": "#1C5435"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "large standalone photo of a man in a suit, positioned on the left side of the upper section.",
+  "layout_type": "two_column",
+  "ad_description": "An Ayurvedic tea ad featuring a doctor on the left, a large headline on the right, the main product box in the center with benefits listed beside it, and a grid of ingredient-specific benefits at the bottom."
+}

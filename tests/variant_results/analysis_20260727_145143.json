@@ -1,0 +1,807 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1080
+  },
+  "background": {
+    "type": "image",
+    "primary_color": "#6B7C61",
+    "secondary_color": "#7D5D42",
+    "gradient_direction": "null",
+    "description": "Blurred indoor scene with a wooden table in the foreground and a window/room in the background."
+  },
+  "color_palette": {
+    "primary": "#2A493B",
+    "secondary": "#FFC800",
+    "background": "#6B7C61",
+    "text_primary": "#3A3A3A",
+    "text_secondary": "#FFFFFF",
+    "accent": "#FFD22D",
+    "all_colors": [
+      "#2A493B",
+      "#FFFFFF",
+      "#3A3A3A",
+      "#FFD22D",
+      "#FFC800",
+      "#E03535",
+      "#6B7C61",
+      "#7D5D42"
+    ]
+  },
+  "elements": [
+    {
+      "id": "brand_logo_container",
+      "type": "brand_logo",
+      "content": "Dr Bimals logo container",
+      "bbox_normalized": [
+        0.7435,
+        0.0333,
+        0.1852,
+        0.0481
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#2A493B",
+      "text_align": null,
+      "z_order": 4,
+      "shape": "rounded_rect",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "brand_logo_text",
+      "type": "brand_logo",
+      "content": "Dr Bimals",
+      "bbox_normalized": [
+        0.7713,
+        0.0463,
+        0.1333,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 5,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "headline_1",
+      "type": "headline",
+      "content": "SWAP YOUR REGULAR GREEN TEA WITH ARJUNA CARDIO CARE TEA",
+      "bbox_normalized": [
+        0.0537,
+        0.0796,
+        0.8889,
+        0.1
+      ],
+      "font_size_ratio": 0.05,
+      "font_weight": "extra_bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "subheadline_1",
+      "type": "subheadline",
+      "content": "6 Ayurvedic Herbs for a Healthy Heart",
+      "bbox_normalized": [
+        0.0556,
+        0.1944,
+        0.5,
+        0.0259
+      ],
+      "font_size_ratio": 0.0259,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_image",
+      "type": "doctor_image",
+      "content": "Image of Dr. Bimal in a circular frame with a glowing yellow border.",
+      "bbox_normalized": [
+        0.0611,
+        0.262,
+        0.1833,
+        0.1833
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": "#FFD22D",
+      "border_width": 4,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_name",
+      "type": "body_text",
+      "content": "Dr. Bimal",
+      "bbox_normalized": [
+        0.2593,
+        0.2787,
+        0.1296,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_title",
+      "type": "body_text",
+      "content": "Doctor of Ayurveda",
+      "bbox_normalized": [
+        0.2593,
+        0.313,
+        0.1574,
+        0.0204
+      ],
+      "font_size_ratio": 0.0204,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_1",
+      "type": "icon",
+      "content": "Glowing flame/light icon in a droplet shape",
+      "bbox_normalized": [
+        0.4583,
+        0.2963,
+        0.0333,
+        0.0333
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#FFD22D",
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_1",
+      "type": "body_text",
+      "content": "SUPPORTS HEALTHY LIPID LEVELS",
+      "bbox_normalized": [
+        0.4259,
+        0.3333,
+        0.1019,
+        0.0333
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_2",
+      "type": "icon",
+      "content": "Glowing dollar sign icon in a droplet shape",
+      "bbox_normalized": [
+        0.3954,
+        0.4204,
+        0.0333,
+        0.0333
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#FFD22D",
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_2",
+      "type": "body_text",
+      "content": "SUPPORTS HEALTHY LIPID LEVELS",
+      "bbox_normalized": [
+        0.3602,
+        0.4602,
+        0.1019,
+        0.0333
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_3",
+      "type": "icon",
+      "content": "Glowing heart graph/pulse icon in a droplet shape",
+      "bbox_normalized": [
+        0.575,
+        0.4204,
+        0.0333,
+        0.0333
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#FFD22D",
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_3",
+      "type": "body_text",
+      "content": "SUPPORTS OVERALL HEART HEALTH",
+      "bbox_normalized": [
+        0.5407,
+        0.4602,
+        0.1019,
+        0.0333
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_4",
+      "type": "icon",
+      "content": "Glowing blood pressure cuff icon in a droplet shape",
+      "bbox_normalized": [
+        0.3954,
+        0.5463,
+        0.0333,
+        0.0333
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#FFD22D",
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_4",
+      "type": "body_text",
+      "content": "HELPS MAINTAIN HEALTHY BLOOD PRESSURE",
+      "bbox_normalized": [
+        0.3602,
+        0.5861,
+        0.1019,
+        0.0481
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_5",
+      "type": "icon",
+      "content": "Glowing test tube icon in a droplet shape",
+      "bbox_normalized": [
+        0.575,
+        0.5463,
+        0.0333,
+        0.0333
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#FFD22D",
+      "text_align": null,
+      "z_order": 3,
+      "shape": "circle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_5",
+      "type": "body_text",
+      "content": "SUPPORTS HEALTHY CHOLESTEROL FUNCTION",
+      "bbox_normalized": [
+        0.5407,
+        0.5861,
+        0.1019,
+        0.0481
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "ingredients_list",
+      "type": "body_text",
+      "content": "Ingredients: Arjuna Bark, Ashwagandha, Tulsi, Dalchini, Brahmi, Haradbaadi",
+      "bbox_normalized": [
+        0.6713,
+        0.3611,
+        0.25,
+        0.0815
+      ],
+      "font_size_ratio": 0.0167,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "product_image",
+      "type": "product_image",
+      "content": "Product box for Dr. Bimal's Arjuna Cardio Care Tea",
+      "bbox_normalized": [
+        0.6481,
+        0.4583,
+        0.2778,
+        0.2315
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 3,
+      "shape": "rectangle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "green_tea_cup_image",
+      "type": "decorative",
+      "content": "Glass cup with green tea",
+      "bbox_normalized": [
+        0.037,
+        0.4907,
+        0.3148,
+        0.213
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "red_x_mark",
+      "type": "decorative",
+      "content": "Red 'X' mark over the green tea cup",
+      "bbox_normalized": [
+        0.1019,
+        0.5324,
+        0.1852,
+        0.1296
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#E03535",
+      "text_align": null,
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_cup_image",
+      "type": "product_image",
+      "content": "Glass cup with Arjuna Cardio Care Tea",
+      "bbox_normalized": [
+        0.3333,
+        0.5,
+        0.3333,
+        0.2222
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "steam_from_arjuna_tea",
+      "type": "decorative",
+      "content": "Steam rising from the Arjuna tea cup",
+      "bbox_normalized": [
+        0.4352,
+        0.3704,
+        0.1389,
+        0.1852
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 0.7,
+      "rotation": 0
+    },
+    {
+      "id": "regular_green_tea_label",
+      "type": "comparison_item",
+      "content": "REGULAR GREEN TEA",
+      "bbox_normalized": [
+        0.0556,
+        0.7787,
+        0.25,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "regular_green_tea_benefit_1",
+      "type": "comparison_item",
+      "content": "BASIC BENEFITS",
+      "bbox_normalized": [
+        0.0556,
+        0.8148,
+        0.25,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "regular_green_tea_benefit_2",
+      "type": "comparison_item",
+      "content": "SIMPLE TASTE",
+      "bbox_normalized": [
+        0.0556,
+        0.8509,
+        0.25,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_label",
+      "type": "comparison_item",
+      "content": "ARJUNA CARDIO CARE TEA",
+      "bbox_normalized": [
+        0.3556,
+        0.7787,
+        0.2778,
+        0.0278
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_benefit_1",
+      "type": "comparison_item",
+      "content": "HELPS MAINTAIN HEALTHY BLOOD PRESSURE",
+      "bbox_normalized": [
+        0.3556,
+        0.8148,
+        0.2778,
+        0.0463
+      ],
+      "font_size_ratio": 0.0278,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "price",
+      "type": "price",
+      "content": "₹599",
+      "bbox_normalized": [
+        0.7639,
+        0.7685,
+        0.1574,
+        0.0444
+      ],
+      "font_size_ratio": 0.0444,
+      "font_weight": "extra_bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": null,
+      "text_align": "right",
+      "z_order": 3,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "cta_button",
+      "type": "cta_button",
+      "content": "SHOP NOW →",
+      "bbox_normalized": [
+        0.6991,
+        0.8241,
+        0.2222,
+        0.0556
+      ],
+      "font_size_ratio": 0.0259,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3A3A3A",
+      "bg_color": "#FFC800",
+      "text_align": "center",
+      "z_order": 3,
+      "shape": "rounded_rect",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    }
+  ],
+  "layout": {
+    "type": "hero_product",
+    "zones": [
+      {
+        "name": "header_logo_area",
+        "bbox_normalized": [
+          0.7,
+          0.0,
+          0.3,
+          0.1
+        ],
+        "purpose": "Contains the brand logo."
+      },
+      {
+        "name": "headline_area",
+        "bbox_normalized": [
+          0.05,
+          0.05,
+          0.9,
+          0.15
+        ],
+        "purpose": "Main headline and subheadline text."
+      },
+      {
+        "name": "doctor_and_benefits_area",
+        "bbox_normalized": [
+          0.05,
+          0.25,
+          0.6,
+          0.45
+        ],
+        "purpose": "Doctor's image and text, surrounded by product benefits."
+      },
+      {
+        "name": "ingredients_and_product_area",
+        "bbox_normalized": [
+          0.65,
+          0.35,
+          0.3,
+          0.4
+        ],
+        "purpose": "Product image and ingredients list."
+      },
+      {
+        "name": "comparison_left_tea",
+        "bbox_normalized": [
+          0.03,
+          0.45,
+          0.35,
+          0.5
+        ],
+        "purpose": "Regular green tea cup and descriptive text."
+      },
+      {
+        "name": "comparison_right_tea",
+        "bbox_normalized": [
+          0.32,
+          0.45,
+          0.35,
+          0.5
+        ],
+        "purpose": "Arjuna Cardio Care Tea cup and descriptive text."
+      },
+      {
+        "name": "cta_and_price_area",
+        "bbox_normalized": [
+          0.65,
+          0.75,
+          0.3,
+          0.2
+        ],
+        "purpose": "Product price and Call to Action button."
+      }
+    ]
+  },
+  "has_doctor": true,
+  "has_product": true,
+  "has_comparison": true,
+  "text_elements_count": 17,
+  "decorative_elements": [
+    "red_x_mark",
+    "steam_from_arjuna_tea",
+    "doctor_image_glow"
+  ]
+}

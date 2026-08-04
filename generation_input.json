@@ -1,0 +1,14 @@
+{
+    "scene_prompt": "medical clinic interior, soft daylight lighting, premium photography style, advertising editorial, empty space on right reserved for product placement, empty space on left reserved for person placement",
+    "product_position": "right",
+    "person_position": "left",
+    "text_position": "top",
+    "headline": "Doctor Recommended Kapiva Shilajit Resin",
+    "subheadline": "Science-backed Ayurvedic supplement for modern wellness",
+    "cta": "Get Started",
+    "lighting": "soft",
+    "variation_id": "creative_011",
+    "creative_style": "doctor_first",
+    "layout_cluster": "cluster_3",
+    "person_type": "doctor"
+}

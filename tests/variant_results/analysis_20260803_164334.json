@@ -1,0 +1,32 @@
+{
+  "headline": "Dr. Bimal's Arjuna Cardio Care Tea",
+  "subheadline": null,
+  "price": "₹599",
+  "cta_text": null,
+  "offer_text": "28% OFF",
+  "extra_texts": [
+    "Dr. Bimal Chhajer",
+    "(MBBS, MD)",
+    "Formulated by",
+    "Arjuna Bark",
+    "250mg/sachet",
+    "Helps maintain healthy cholesterol levels",
+    "Ashwagandha",
+    "50mg/sachet",
+    "Helps support a healthy response to stress",
+    "Clove",
+    "63mg/sachet",
+    "Supports the body's immune defenses",
+    "50 Sachets",
+    "₹840"
+  ],
+  "color_palette": {
+    "primary": "#FDF4E7",
+    "secondary": "#C49F5E",
+    "text_color": "#C49F5E"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "prominent, medium-sized standalone photo of the doctor on the left side of the ad, with his name and credentials below it.",
+  "layout_type": "two_column",
+  "ad_description": "An Ayurvedic product advertisement featuring an endorsing doctor, listing key ingredients and benefits in a two-column layout with pricing at the bottom."
+}

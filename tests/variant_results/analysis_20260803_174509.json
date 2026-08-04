@@ -1,0 +1,35 @@
+{
+  "headline": "आपका दिल रोजाना देखभाल का हकदार है।",
+  "subheadline": "अर्जुन छाल — स्वस्थ दिल के लिए",
+  "price": "₹599",
+  "cta_text": null,
+  "offer_text": null,
+  "extra_texts": [
+    "डॉ. बिमल'स",
+    "डॉ. बिमल छाजेर MBBS MD द्वारा निर्मित",
+    "अर्जुन छाल स्वस्थ लिपिड स्तर बनाए रखने में मदद करती है",
+    "फायदा 1",
+    "फायदा 2",
+    "फायदा 3",
+    "1",
+    "2",
+    "3",
+    "अर्जुन छाल",
+    "स्वस्थ लिपिड स्तर बनाए रखने में सहायक",
+    "ग्रीन टी",
+    "स्वस्थ रक्त वाहिकाओं के कार्य में सहायक",
+    "अश्वगंधा",
+    "स्वस्थ तनाव प्रतिक्रिया में सहायक",
+    "एक कप। हर सुबह आपकी रोज़ाना दिल की देखभाल की आदत।",
+    "50 सैशे"
+  ],
+  "color_palette": {
+    "primary": "#F5EFE1",
+    "secondary": "#E1B761",
+    "text_color": "#332115"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "standalone photo of Dr. Bimal Chhajer on the left side, medium size, with his name and credentials below it.",
+  "layout_type": "hero_product",
+  "ad_description": "An Ayurvedic tea ad promoting heart health, featuring a doctor's endorsement, key ingredient benefits, and a prominent product display against a natural, leafy background."
+}

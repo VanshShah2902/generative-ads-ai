@@ -1,0 +1,10 @@
+{
+  "problem_first": {
+    "headline_style": "problem-focused, emotional trigger",
+    "layout_hint": "person left showing discomfort"
+  },
+  "solution_first": {
+    "headline_style": "relief-focused, positive tone",
+    "layout_hint": "product solving problem"
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "scene_model": "sdxl",
+    "image_resolution": 1024,
+    "negative_prompt": "product, bottle, person, text, logo, blurry, distorted, low quality"
+}

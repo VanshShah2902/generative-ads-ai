@@ -1,0 +1,860 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1080
+  },
+  "background": {
+    "type": "image",
+    "primary_color": "#3D3D3D",
+    "secondary_color": "#6C8B56",
+    "gradient_direction": null,
+    "description": "Blurred image of a warm indoor setting with a wooden table in the foreground and a window showing faint green foliage and sunlight in the background."
+  },
+  "color_palette": {
+    "primary": "#1D4D36",
+    "secondary": "#F2C10E",
+    "background": "#3D3D3D",
+    "text_primary": "#3D3D3D",
+    "text_secondary": "#FFFFFF",
+    "accent": "#F2C10E",
+    "all_colors": [
+      "#3D3D3D",
+      "#FFFFFF",
+      "#F2C10E",
+      "#1D4D36",
+      "#CC0000",
+      "#5D5D5D",
+      "#9BC178",
+      "#E0E0E0"
+    ]
+  },
+  "elements": [
+    {
+      "id": "brand_logo_shape",
+      "type": "decorative",
+      "content": "Dark green rounded rectangle for brand logo background",
+      "bbox_normalized": [
+        0.762,
+        0.033,
+        0.207,
+        0.07
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#1D4D36",
+      "text_align": null,
+      "z_order": 9,
+      "shape": "rounded_rect",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "brand_logo_text_dr_bimals",
+      "type": "brand_logo",
+      "content": "Dr Bimals",
+      "bbox_normalized": [
+        0.778,
+        0.046,
+        0.17,
+        0.04
+      ],
+      "font_size_ratio": 0.041,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 10,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "headline_1",
+      "type": "headline",
+      "content": "SWAP YOUR REGULAR GREEN TEA",
+      "bbox_normalized": [
+        0.052,
+        0.07,
+        0.9,
+        0.07
+      ],
+      "font_size_ratio": 0.07,
+      "font_weight": "extra_bold",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "headline_2",
+      "type": "headline",
+      "content": "WITH ARJUNA CARDIO CARE TEA",
+      "bbox_normalized": [
+        0.052,
+        0.14,
+        0.9,
+        0.07
+      ],
+      "font_size_ratio": 0.07,
+      "font_weight": "extra_bold",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "subheadline_1",
+      "type": "subheadline",
+      "content": "6 Ayurvedic Herbs for a Healthy Heart",
+      "bbox_normalized": [
+        0.052,
+        0.222,
+        0.5,
+        0.038
+      ],
+      "font_size_ratio": 0.038,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_image",
+      "type": "doctor_image",
+      "content": "Portrait of Dr. Bimal, a man in a suit and tie, smiling.",
+      "bbox_normalized": [
+        0.052,
+        0.307,
+        0.209,
+        0.209
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 2,
+      "shape": "circle",
+      "border_color": "#F2C10E",
+      "border_width": 5,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_name",
+      "type": "body_text",
+      "content": "Dr. Bimal",
+      "bbox_normalized": [
+        0.29,
+        0.315,
+        0.15,
+        0.035
+      ],
+      "font_size_ratio": 0.035,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "doctor_title",
+      "type": "body_text",
+      "content": "Doctor of Ayurveda",
+      "bbox_normalized": [
+        0.29,
+        0.35,
+        0.17,
+        0.025
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#5D5D5D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_lipid_drop",
+      "type": "icon",
+      "content": "Stylized golden lipid drop icon",
+      "bbox_normalized": [
+        0.47,
+        0.33,
+        0.04,
+        0.04
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_lipid_levels_1",
+      "type": "body_text",
+      "content": "SUPPORTS\nHEALTHY\nLIPID LEVELS",
+      "bbox_normalized": [
+        0.428,
+        0.37,
+        0.13,
+        0.06
+      ],
+      "font_size_ratio": 0.019,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_money_bag",
+      "type": "icon",
+      "content": "Stylized golden money bag icon",
+      "bbox_normalized": [
+        0.395,
+        0.445,
+        0.04,
+        0.04
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_lipid_levels_2",
+      "type": "body_text",
+      "content": "SUPPORTS\nHEALTHY\nLIPID LEVELS",
+      "bbox_normalized": [
+        0.353,
+        0.485,
+        0.13,
+        0.06
+      ],
+      "font_size_ratio": 0.019,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_heart",
+      "type": "icon",
+      "content": "Stylized golden heart icon",
+      "bbox_normalized": [
+        0.57,
+        0.445,
+        0.04,
+        0.04
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_overall_heart_health",
+      "type": "body_text",
+      "content": "SUPPORTS\nOVERALL\nHEART HEALTH",
+      "bbox_normalized": [
+        0.528,
+        0.485,
+        0.13,
+        0.06
+      ],
+      "font_size_ratio": 0.019,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_heart_pulse",
+      "type": "icon",
+      "content": "Stylized golden heart with pulse icon",
+      "bbox_normalized": [
+        0.395,
+        0.555,
+        0.04,
+        0.04
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_blood_pressure",
+      "type": "body_text",
+      "content": "HELPS MAINTAIN\nHEALTHY BLOOD\nPRESSURE",
+      "bbox_normalized": [
+        0.353,
+        0.595,
+        0.13,
+        0.06
+      ],
+      "font_size_ratio": 0.019,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_icon_dropper_pill",
+      "type": "icon",
+      "content": "Stylized golden dropper or pill icon",
+      "bbox_normalized": [
+        0.57,
+        0.555,
+        0.04,
+        0.04
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "benefit_text_cholesterol_function",
+      "type": "body_text",
+      "content": "SUPPORTS\nHEALTHY\nCHOLESTEROL\nFUNCTION",
+      "bbox_normalized": [
+        0.528,
+        0.595,
+        0.13,
+        0.075
+      ],
+      "font_size_ratio": 0.019,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "ingredients_list",
+      "type": "body_text",
+      "content": "Ingredients: Arjuna Bark, Ashwagandha, Tulsi, Dalchini, Brahmi, Haradbadi",
+      "bbox_normalized": [
+        0.7,
+        0.39,
+        0.25,
+        0.09
+      ],
+      "font_size_ratio": 0.02,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": null,
+      "text_align": "left",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "regular_green_tea_cup",
+      "type": "comparison_item",
+      "content": "Glass cup with light green tea",
+      "bbox_normalized": [
+        0.065,
+        0.55,
+        0.3,
+        0.3
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "decorative_red_cross",
+      "type": "decorative",
+      "content": "Red cross mark over the regular green tea cup",
+      "bbox_normalized": [
+        0.155,
+        0.64,
+        0.12,
+        0.12
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": "#CC0000",
+      "text_align": null,
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_cup",
+      "type": "product_image",
+      "content": "Glass cup with amber colored tea",
+      "bbox_normalized": [
+        0.3,
+        0.59,
+        0.3,
+        0.3
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "decorative_tea_steam",
+      "type": "decorative",
+      "content": "White steam rising from the Arjuna tea cup",
+      "bbox_normalized": [
+        0.43,
+        0.44,
+        0.15,
+        0.2
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 2,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 0.7,
+      "rotation": 0
+    },
+    {
+      "id": "product_image_box",
+      "type": "product_image",
+      "content": "Green product box for Dr. Bimals Arjuna Cardio Care Tea",
+      "bbox_normalized": [
+        0.65,
+        0.49,
+        0.31,
+        0.4
+      ],
+      "font_size_ratio": null,
+      "font_weight": null,
+      "font_style": null,
+      "text_color": null,
+      "bg_color": null,
+      "text_align": null,
+      "z_order": 1,
+      "shape": "rectangle",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": -5
+    },
+    {
+      "id": "green_tea_description_1",
+      "type": "body_text",
+      "content": "REGULAR GREEN TEA",
+      "bbox_normalized": [
+        0.08,
+        0.85,
+        0.25,
+        0.025
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "green_tea_description_2",
+      "type": "body_text",
+      "content": "BASIC BENEFITS",
+      "bbox_normalized": [
+        0.08,
+        0.875,
+        0.25,
+        0.025
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "green_tea_description_3",
+      "type": "body_text",
+      "content": "SIMPLE TASTE",
+      "bbox_normalized": [
+        0.08,
+        0.9,
+        0.25,
+        0.025
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_description_1",
+      "type": "body_text",
+      "content": "ARJUNA CARDIO CARE TEA",
+      "bbox_normalized": [
+        0.35,
+        0.85,
+        0.25,
+        0.025
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#F2C10E",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "arjuna_tea_description_2",
+      "type": "body_text",
+      "content": "HELPS MAINTAIN\nHEALTHY BLOOD PRESSURE",
+      "bbox_normalized": [
+        0.35,
+        0.875,
+        0.25,
+        0.05
+      ],
+      "font_size_ratio": 0.025,
+      "font_weight": "normal",
+      "font_style": "sans_serif",
+      "text_color": "#FFFFFF",
+      "bg_color": null,
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "price",
+      "type": "price",
+      "content": "₹599",
+      "bbox_normalized": [
+        0.78,
+        0.81,
+        0.17,
+        0.055
+      ],
+      "font_size_ratio": 0.056,
+      "font_weight": "extra_bold",
+      "font_style": "sans_serif",
+      "text_color": "#F2C10E",
+      "bg_color": null,
+      "text_align": "right",
+      "z_order": 1,
+      "shape": "none",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "cta_button",
+      "type": "cta_button",
+      "content": "SHOP NOW →",
+      "bbox_normalized": [
+        0.73,
+        0.88,
+        0.22,
+        0.06
+      ],
+      "font_size_ratio": 0.028,
+      "font_weight": "bold",
+      "font_style": "sans_serif",
+      "text_color": "#3D3D3D",
+      "bg_color": "#F2C10E",
+      "text_align": "center",
+      "z_order": 1,
+      "shape": "rounded_rect",
+      "border_color": null,
+      "border_width": 0,
+      "opacity": 1.0,
+      "rotation": 0
+    }
+  ],
+  "layout": {
+    "type": "hero_product",
+    "zones": [
+      {
+        "name": "header_logo",
+        "bbox_normalized": [
+          0.75,
+          0.025,
+          0.22,
+          0.08
+        ],
+        "purpose": "Brand logo placement"
+      },
+      {
+        "name": "headline_area",
+        "bbox_normalized": [
+          0.04,
+          0.06,
+          0.92,
+          0.19
+        ],
+        "purpose": "Primary advertisement message"
+      },
+      {
+        "name": "doctor_endorsement",
+        "bbox_normalized": [
+          0.04,
+          0.29,
+          0.45,
+          0.23
+        ],
+        "purpose": "Doctor's image and credentials for credibility"
+      },
+      {
+        "name": "product_benefits",
+        "bbox_normalized": [
+          0.34,
+          0.31,
+          0.35,
+          0.43
+        ],
+        "purpose": "List of key health benefits with icons"
+      },
+      {
+        "name": "ingredients_list_area",
+        "bbox_normalized": [
+          0.68,
+          0.38,
+          0.29,
+          0.11
+        ],
+        "purpose": "Display of product ingredients"
+      },
+      {
+        "name": "product_comparison_tea_cups",
+        "bbox_normalized": [
+          0.05,
+          0.54,
+          0.6,
+          0.35
+        ],
+        "purpose": "Visual comparison of regular tea versus product tea cups"
+      },
+      {
+        "name": "product_box_display",
+        "bbox_normalized": [
+          0.62,
+          0.47,
+          0.36,
+          0.43
+        ],
+        "purpose": "Prominent display of the product packaging"
+      },
+      {
+        "name": "comparison_text_left",
+        "bbox_normalized": [
+          0.07,
+          0.84,
+          0.27,
+          0.09
+        ],
+        "purpose": "Text description for the regular green tea"
+      },
+      {
+        "name": "comparison_text_right",
+        "bbox_normalized": [
+          0.34,
+          0.84,
+          0.27,
+          0.09
+        ],
+        "purpose": "Text description for the Arjuna Cardio Care Tea"
+      },
+      {
+        "name": "price_and_cta_footer",
+        "bbox_normalized": [
+          0.7,
+          0.8,
+          0.27,
+          0.17
+        ],
+        "purpose": "Price display and call-to-action button"
+      }
+    ]
+  },
+  "has_doctor": true,
+  "has_product": true,
+  "has_comparison": true,
+  "text_elements_count": 19,
+  "decorative_elements": [
+    "brand_logo_shape",
+    "decorative_red_cross",
+    "decorative_tea_steam"
+  ]
+}

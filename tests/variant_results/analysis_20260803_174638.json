@@ -1,0 +1,33 @@
+{
+  "headline": "सिर्फ ग्रीन टी पीते हो? अर्जुन चाय में ग्रीन टी भी है और १३ जड़ी-बूटियां भी",
+  "subheadline": null,
+  "price": "₹५९९",
+  "cta_text": "अभी खरीदें →",
+  "offer_text": "सिर्फ ₹१२ रोज़ाना",
+  "extra_texts": [
+    "Dr. Bimal's",
+    "Jaadu Diet",
+    "रेगुलर ग्रीन टी",
+    "फीकी। एक ही फ़ायदा।",
+    "सिर्फ एंटीऑक्सीडेंट। दिल के लिए बस इतना।",
+    "ग्रीन टी + अर्जुन छाल + १२ और जड़ी-बूटियां।",
+    "अर्जुन छाल बुरे कोलेस्ट्रॉल को कम करने में मदद करे",
+    "६ आयुर्वेदिक जड़ी-बूटियां दिल के लिए",
+    "५० टी बैग्स",
+    "strengthening",
+    "detoxifying",
+    "soothing",
+    "circulating",
+    "relaxing",
+    "purifying"
+  ],
+  "color_palette": {
+    "primary": "#B4DAA1",
+    "secondary": "#F1C40F",
+    "text_color": "#2F5940"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "circular photo of Dr. Bimal located to the left of the product box, medium size.",
+  "layout_type": "comparison",
+  "ad_description": "The ad uses a split visual to compare regular green tea with a featured Arjun Tea, highlighting the latter's additional herbal benefits and showcasing the product packaging, price, and a call to action."
+}

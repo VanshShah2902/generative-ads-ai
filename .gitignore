@@ -1,0 +1,52 @@
+# Environment and Secrets
+.env
+.venv/
+.venv_new/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs and debug files
+*.log
+pipeline_debug.log
+pipeline_compositing_test.log
+
+# Temporary/Output data
+outputs/
+inputs/
+archive/
+assets/
+data/
+Imported_things/
+reports/
+
+# Models (except README or necessary configs)
+models/*.pkl
+models/*.bin
+models/*.joblib
+!models/README.md
+!models/*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Outputs added
+*.png
+*.jpg
+venv/
+test_env/
+
+# Claude worktrees
+.claude/worktrees/
+
+# Model weights
+*.pt
+*.pth
+*.onnx

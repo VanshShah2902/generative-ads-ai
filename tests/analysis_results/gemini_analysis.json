@@ -1,0 +1,45 @@
+{
+  "method": "GEMINI 2.0 FLASH",
+  "analysis": {
+    "ad_type": "product_hero",
+    "creative_concept": "To convey premium quality and trustworthiness for a specific product (Kapiva Shilajit Resin) through clear textual messaging and a minimalist layout, with a central space reserved for the product visual.",
+    "layout": {
+      "composition": "asymmetric",
+      "person_position": "none",
+      "product_position": "none",
+      "text_position": "top",
+      "whitespace_usage": "generous"
+    },
+    "visual_style": {
+      "lighting": "clinical",
+      "color_palette": [
+        "#363636",
+        "#AAAAAA",
+        "#007BFF"
+      ],
+      "mood": "premium",
+      "photography_style": "product shot"
+    },
+    "text_content": {
+      "headline": "Premium Kapiva Shilajit Resin",
+      "subheadline": "Quality you can trust",
+      "cta": "Shop Now",
+      "language": "English",
+      "text_density": "low"
+    },
+    "elements": {
+      "person_present": false,
+      "person_type": "none",
+      "product_visible": false,
+      "product_type": "none",
+      "badges_icons": false,
+      "ingredients_shown": false,
+      "price_shown": false
+    },
+    "hook_type": "trust",
+    "emotion": "confidence",
+    "replication_notes": "Key elements to replicate include a dark grey background with light grey headline text and a blue call-to-action button. The layout positions the headline and subheadline at the top-left, a large central area for a primary visual asset, and a centrally placed CTA at the bottom. The overall design emphasizes minimalism and clear visual hierarchy."
+  },
+  "time_seconds": 11.44,
+  "cost": "~$0.00035 (~0.030 INR)"
+}

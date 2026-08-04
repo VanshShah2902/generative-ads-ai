@@ -1,0 +1,36 @@
+{
+  "canvas": [1080, 1080],
+
+  "doctor_width_pct_a": 0.40,
+  "doctor_width_pct_b": 0.35,
+
+  "banner_height_px": 80,
+  "title_height_a": 130,
+  "title_height_b": 110,
+  "table_height_px": 310,
+  "table_header_height_px": 56,
+
+  "card_height_px": 165,
+  "card_gap_px": 14,
+
+  "icon_circle_r": 32,
+
+  "title_font_size":   52,
+  "title_font_size_b": 46,
+  "ingredient_name_font_size": 26,
+  "dosage_font_size":          22,
+  "description_font_size":     18,
+  "banner_font_size":          26,
+
+  "product_size_a": [290, 290],
+  "product_size_b": [370, 370],
+
+  "colors": {
+    "dark_green":  [15,  60,  30],
+    "gold":        [180, 140, 50],
+    "amber_bg":    [210, 168, 55],
+    "white":       [255, 255, 255],
+    "black":       [22,  22,  22],
+    "card_border": [15,  60,  30]
+  }
+}

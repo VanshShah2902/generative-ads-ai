@@ -1,0 +1,40 @@
+{
+  "presets": [
+    {
+      "name": "panic",
+      "headline": "jagged distressed italic handwritten font",
+      "sub": "thin sans-serif",
+      "cta": "condensed bold sans-serif"
+    },
+    {
+      "name": "trust",
+      "headline": "classic serif, medical slab-serif",
+      "sub": "elegant serif",
+      "cta": "clean sans-serif"
+    },
+    {
+      "name": "premium",
+      "headline": "Montserrat Bold",
+      "sub": "modern serif",
+      "cta": "minimal sans-serif"
+    },
+    {
+      "name": "calm",
+      "headline": "rounded soft sans-serif",
+      "sub": "light serif",
+      "cta": "clean minimal sans-serif"
+    },
+    {
+      "name": "natural",
+      "headline": "organic hand-lettered sans-serif, warm earthy feel",
+      "sub": "light humanist sans-serif",
+      "cta": "rounded bold sans-serif"
+    },
+    {
+      "name": "bold_impact",
+      "headline": "ultra-bold condensed sans-serif, strong impact",
+      "sub": "clean geometric sans-serif",
+      "cta": "heavy bold sans-serif with high contrast"
+    }
+  ]
+}

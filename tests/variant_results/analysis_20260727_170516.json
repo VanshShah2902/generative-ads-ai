@@ -1,0 +1,27 @@
+{
+  "headline": "अर्जुन छाल बुरे कोलेस्ट्रॉल को कम करने में मदद करती है",
+  "subheadline": "Dr. Bimal's Jaadu Diet",
+  "price": "₹599",
+  "cta_text": "अभी खरीदें",
+  "offer_text": null,
+  "extra_texts": [
+    "डॉ. बिमल छाजेर / MBBS, MD",
+    "डॉ. बिमल छाजेर MBBS MD द्वारा निर्मित",
+    "50 Tea Bags",
+    "अश्वगंधा",
+    "स्ट्रेस कम करने में मदद करे",
+    "ग्रीन टी",
+    "दिल की नसों को स्वस्थ रखे",
+    "दालचीनी",
+    "ब्लड शुगर कंट्रोल में मदद करे"
+  ],
+  "color_palette": {
+    "primary": "#E9D2F3",
+    "secondary": "#346800",
+    "text_color": "#346800"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "large photo of the doctor with arms crossed, positioned prominently on the left side of the upper ad layout.",
+  "layout_type": "hero_product",
+  "ad_description": "An Ayurvedic health product ad featuring a large product box, a prominent doctor endorsement, and details of key ingredients with their benefits, set against a gradient purple background."
+}

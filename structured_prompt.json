@@ -1,0 +1,7 @@
+{
+    "scene_prompt": "clean premium medical clinic interior with soft daylight lighting, advertising photography style, empty space on right for product placement, person placed on left",
+    "person_required": true,
+    "product_position": "right",
+    "person_position": "left",
+    "text_position": "top"
+}

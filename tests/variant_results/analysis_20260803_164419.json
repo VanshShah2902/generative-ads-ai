@@ -1,0 +1,23 @@
+{
+  "headline": "WHAT ARJUNA BARK DOES — MONTH BY MONTH",
+  "subheadline": "One cup daily.",
+  "price": "₹599",
+  "cta_text": null,
+  "offer_text": null,
+  "extra_texts": [
+    "Formulated by Dr. Bimal Chhajer, MBBS MD",
+    "Month 1 — Helps keep cholesterol under control",
+    "Month 2 — Increases antioxidant activity in heart muscle",
+    "Month 3 — Helps keep blood vessels healthy",
+    "50 Sachets"
+  ],
+  "color_palette": {
+    "primary": "#F0E6F5",
+    "secondary": "#EBAA41",
+    "text_color": "#5A356A"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "large photo of a man in a suit on the right side of the ad, spanning roughly the top half to two-thirds vertically.",
+  "layout_type": "two_column",
+  "ad_description": "This ad visually describes the monthly benefits of Arjuna Bark tea, featuring a doctor endorsement and product details."
+}

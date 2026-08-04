@@ -1,0 +1,10 @@
+{
+  "gemini": {
+    "model": "Gemini 2.5 Flash Image (gemini-2.5-flash-image)",
+    "output_path": "C:\\Users\\vansh\\OneDrive\\Documents\\zj\\Generative_ads_final\\Generative_ads\\Dataset\\generative_ads_ai\\tests\\generation_results\\gemini_1x1_20260727_130016.png",
+    "time_seconds": 8.53,
+    "cost_estimate": "~$0.04",
+    "aspect_ratio": "1:1",
+    "success": true
+  }
+}

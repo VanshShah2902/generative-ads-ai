@@ -1,0 +1,34 @@
+{
+    "cluster_0": {
+        "product_anchor": "center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_center"
+    },
+    "cluster_1": {
+        "product_anchor": "center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_center"
+    },
+    "cluster_2": {
+        "product_anchor": "center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_center"
+    },
+    "cluster_3": {
+        "product_anchor": "right_center",
+        "person_anchor": "left_center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_right"
+    },
+    "cluster_4": {
+        "product_anchor": "center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_center"
+    },
+    "cluster_5": {
+        "product_anchor": "right_center",
+        "person_anchor": "left_center",
+        "headline_anchor": "top_center",
+        "cta_anchor": "bottom_center"
+    }
+}

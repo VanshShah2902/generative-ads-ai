@@ -1,0 +1,11 @@
+{
+    "strategy": "product_first",
+    "visual_focus": "product",
+    "person_required": false,
+    "product_priority": "high",
+    "text_priority": "medium",
+    "context": {
+        "product_category": "Ayurvedic supplement",
+        "target_audience": "men 25-45 fitness enthusiasts"
+    }
+}

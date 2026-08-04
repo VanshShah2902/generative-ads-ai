@@ -1,0 +1,7 @@
+{
+  "problem_first": ["fear", "worry", "panic", "shock"],
+  "solution_first": ["relief", "calm", "hope"],
+  "doctor_first": ["trust", "confidence"],
+  "ingredient_first": ["freshness", "natural"],
+  "product_first": ["confidence", "premium"]
+}

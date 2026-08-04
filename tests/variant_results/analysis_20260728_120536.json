@@ -1,0 +1,37 @@
+{
+  "headline": "Your Heart Deserves Daily Care.",
+  "subheadline": "One Cup. Every Morning. Your daily heart care habit.",
+  "price": "₹599",
+  "cta_text": null,
+  "offer_text": null,
+  "extra_texts": [
+    "Dr. Bimal's",
+    "Formulated by Dr. Bimal Chhajer, MBBS, MD",
+    "Arjuna Bark — For a Healthy Heart",
+    "Arjuna bark helps maintain healthy lipid levels.",
+    "BENEFIT 1",
+    "1",
+    "Arjuna Bark —",
+    "Helps maintain healthy lipid levels",
+    "BENEFIT 2",
+    "2",
+    "Green Tea —",
+    "Supports healthy blood vessel function",
+    "BENEFIT 3",
+    "3",
+    "Ashwagandha —",
+    "Supports a healthy stress response",
+    "Dr. Bimal Chhajer",
+    "Formulated by MBBS, MD",
+    "| 50 Sachets"
+  ],
+  "color_palette": {
+    "primary": "#F2C94C",
+    "secondary": "#2F5C3E",
+    "text_color": "#261E0E"
+  },
+  "has_doctor_photo": true,
+  "doctor_photo_description": "Large photo of Dr. Bimal Chhajer on the lower-left side, shown from the waist up with arms crossed.",
+  "layout_type": "hero_product",
+  "ad_description": "An advertisement for Dr. Bimal's Arjuna Cardio Care Tea, featuring Dr. Bimal Chhajer endorsing the product with a focus on heart health benefits and natural ingredients, displayed against a warm yellow background."
+}

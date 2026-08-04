@@ -1,0 +1,9 @@
+{
+    "left_center": [0.2, 0.6],
+    "right_center": [0.8, 0.6],
+    "center": [0.5, 0.6],
+    "top_center": [0.5, 0.15],
+    "bottom_right": [0.85, 0.85],
+    "bottom_center": [0.5, 0.85],
+    "bottom_left": [0.15, 0.85]
+}
