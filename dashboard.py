@@ -527,6 +527,13 @@ with tab_combo:
             if st.checkbox(f"{label}: {current}", key=f"combo_tr_{field_key}", value=(field_key != "price")):
                 combo_translate_fields[field_key] = current
 
+        combo_extra_texts = analysis.get("extra_texts", [])
+        if combo_extra_texts:
+            with st.expander("Other ad texts"):
+                for i, txt in enumerate(combo_extra_texts):
+                    if st.checkbox(txt, key=f"combo_tr_extra_{i}"):
+                        combo_translate_fields[f"extra_{i}"] = txt
+
     if st.button("Add combo to queue", key="q_combo", type="primary", use_container_width=True):
         combo_changes = {}
         label_parts = []
