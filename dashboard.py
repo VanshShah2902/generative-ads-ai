@@ -73,15 +73,14 @@ st.set_page_config(
 )
 
 # ── Custom CSS ──
+# Streamlit uses [data-testid="stAppViewContainer"] with theme classes.
+# We use CSS variables so both light and dark themes work automatically.
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
     /* Global */
     .block-container { padding: 1.5rem 2rem 3rem; max-width: 1400px; }
-    html, body, [class*="css"] { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 
-    /* Header */
+    /* Header — gradient works on both themes */
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 1.5rem;
@@ -91,33 +90,10 @@ st.markdown("""
         content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px;
         background: rgba(255,255,255,0.08); border-radius: 50%;
     }
-    .main-header h1 { font-size: 1.8rem; font-weight: 700; margin: 0; color: white; }
-    .main-header p { font-size: 0.95rem; opacity: 0.9; margin: 0.3rem 0 0; color: white;}
+    .main-header h1 { font-size: 1.8rem; font-weight: 700; margin: 0; color: white !important; }
+    .main-header p { font-size: 0.95rem; opacity: 0.9; margin: 0.3rem 0 0; color: white !important; }
 
-    /* Cards */
-    .info-card {
-        background: white; border: 1px solid #e5e7eb; border-radius: 12px;
-        padding: 1.2rem; margin-bottom: 0.8rem;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-        transition: box-shadow 0.2s;
-    }
-    .info-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    .info-card h4 { margin: 0 0 0.5rem; font-size: 0.85rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
-    .info-card .value { font-size: 1.4rem; font-weight: 700; color: #111827; }
-    .info-card .sub { font-size: 0.8rem; color: #9ca3af; margin-top: 0.2rem; }
-
-    /* Queue card */
-    .queue-card {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        border: 1px solid #bae6fd; border-radius: 12px;
-        padding: 1rem 1.2rem; margin: 0.5rem 0;
-    }
-    .queue-item {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);
-        font-size: 0.88rem;
-    }
-    .queue-item:last-child { border-bottom: none; }
+    /* Queue badge */
     .queue-badge {
         display: inline-block; padding: 2px 8px; border-radius: 6px;
         font-size: 0.75rem; font-weight: 600; margin-right: 6px;
@@ -130,91 +106,46 @@ st.markdown("""
     .badge-combo { background: #ede9fe; color: #5b21b6; }
     .badge-translate { background: #cffafe; color: #155e75; }
 
-    /* Batch status */
-    .batch-processing {
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        border: 1px solid #6ee7b7; border-radius: 12px;
-        padding: 1.2rem 1.5rem; margin: 1rem 0;
-    }
-    .batch-processing h3 { margin: 0 0 0.5rem; color: #065f46; font-size: 1.1rem; }
-
-    /* Submit section */
-    .submit-section {
-        background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
-        border: 1px solid #fde68a; border-radius: 12px;
-        padding: 1.2rem 1.5rem; margin: 1rem 0;
-    }
-
     /* Color swatch */
-    .color-swatch {
-        display: flex; gap: 3px; margin-bottom: 6px;
-    }
+    .color-swatch { display: flex; gap: 3px; margin-bottom: 6px; }
     .color-swatch div {
         width: 32px; height: 32px; border-radius: 8px;
-        border: 2px solid transparent; transition: border-color 0.2s;
+        border: 2px solid transparent;
     }
 
     /* Image grid */
-    .stImage > img { border-radius: 10px; border: 1px solid #e5e7eb; }
-
-    /* Sidebar */
-    section[data-testid="stSidebar"] {
-        background: #fafbfc;
-    }
-    section[data-testid="stSidebar"] .block-container { padding-top: 1rem; }
+    .stImage > img { border-radius: 10px; }
 
     /* Tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 4px; background: #f3f4f6; border-radius: 10px; padding: 4px;
-    }
     .stTabs [data-baseweb="tab"] {
         border-radius: 8px; font-weight: 500; font-size: 0.88rem;
         padding: 0.5rem 1rem;
     }
-    .stTabs [aria-selected="true"] {
-        background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
-    /* Metric cards */
-    [data-testid="stMetric"] {
-        background: white; border: 1px solid #e5e7eb; border-radius: 10px;
-        padding: 0.8rem 1rem;
-    }
 
     /* Buttons */
-    .stButton > button[kind="primary"] {
-        border-radius: 8px; font-weight: 600; padding: 0.5rem 1.5rem;
-    }
-    .stButton > button {
-        border-radius: 8px; font-weight: 500;
-    }
+    .stButton > button { border-radius: 8px; font-weight: 500; }
 
-    /* Section headers */
-    .section-header {
-        display: flex; align-items: center; gap: 0.6rem;
-        margin: 1.5rem 0 1rem; padding-bottom: 0.5rem;
-        border-bottom: 2px solid #e5e7eb;
+    /* Batch/submit status cards — use semi-transparent backgrounds */
+    .batch-card {
+        border-radius: 12px; padding: 1.2rem 1.5rem; margin: 1rem 0;
     }
-    .section-header h3 {
-        margin: 0; font-size: 1.15rem; font-weight: 600; color: #111827;
+    .batch-success {
+        background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
     }
+    .batch-success h3 { margin: 0 0 0.5rem; color: #10b981; font-size: 1.1rem; }
+    .batch-success p { margin: 0; }
+    .batch-pending {
+        background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .batch-pending h3 { margin: 0 0 0.5rem; color: #3b82f6; font-size: 1.1rem; }
+    .batch-pending p { margin: 0; }
+    .batch-submit {
+        background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .batch-submit h3 { margin: 0 0 0.5rem; color: #f59e0b; font-size: 1.1rem; }
+    .batch-submit p { margin: 0; }
 
-    /* Results grid */
-    .result-card {
-        background: white; border: 1px solid #e5e7eb; border-radius: 12px;
-        padding: 0.8rem; text-align: center;
-    }
-
-    /* Dark mode support */
-    @media (prefers-color-scheme: dark) {
-        .info-card { background: #1f2937; border-color: #374151; }
-        .info-card h4 { color: #9ca3af; }
-        .info-card .value { color: #f9fafb; }
-        .queue-card { background: linear-gradient(135deg, #1e3a5f 0%, #1e3a5f 100%); border-color: #2563eb; }
-        .main-header { background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%); }
-    }
-
-    /* Hide default streamlit */
+    /* Hide default streamlit chrome */
     #MainMenu { visibility: hidden; }
     footer { visibility: hidden; }
     header { visibility: hidden; }
@@ -243,9 +174,10 @@ st.markdown("""
 
 # ── Sidebar ──
 with st.sidebar:
-    st.markdown("### 📎 Upload Reference")
+    st.markdown("### Upload Reference")
     uploaded = st.file_uploader("Drop an ad image here", type=["png", "jpg", "jpeg", "webp"], label_visibility="collapsed")
 
+    # Show existing images only if any exist locally
     test_images = []
     for d in ["tests/generation_results", "assets"]:
         full = os.path.join(BASE_DIR, d)
@@ -264,7 +196,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Analysis
-    st.markdown("### 🔍 Analysis")
+    st.markdown("### Analysis")
     analysis_files = sorted(
         [f for f in os.listdir(OUTPUT_DIR) if f.startswith("analysis_") and f.endswith(".json")],
         reverse=True,
@@ -280,7 +212,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Queue
-    st.markdown("### 📋 Queue")
+    st.markdown("### Queue")
     queue = st.session_state.queue
     if queue:
         badge_map = {"color": "badge-color", "font": "badge-font", "text": "badge-text",
@@ -314,7 +246,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Stats
-    st.markdown("### 📊 Session Stats")
+    st.markdown("### Session Stats")
     col_s1, col_s2 = st.columns(2)
     col_s1.metric("Generated", st.session_state.gen_count)
     col_s2.metric("Spent", f"₹{st.session_state.total_cost:.1f}")
@@ -356,14 +288,13 @@ ref_path = st.session_state.ref_path or ref_image_path
 if ref_path and os.path.exists(ref_path):
     col_ref, col_info = st.columns([1, 1], gap="large")
     with col_ref:
-        st.markdown('<div class="section-header"><h3>Reference Ad</h3></div>', unsafe_allow_html=True)
+        st.subheader("Reference Ad")
         st.image(ref_path, use_container_width=True)
 
     with col_info:
         if analysis:
-            st.markdown('<div class="section-header"><h3>Detected Content</h3></div>', unsafe_allow_html=True)
+            st.subheader("Detected Content")
 
-            # Key fields as compact cards
             fields = [
                 ("Headline", analysis.get("headline")),
                 ("Subheadline", analysis.get("subheadline")),
@@ -373,7 +304,7 @@ if ref_path and os.path.exists(ref_path):
             ]
             for label, val in fields:
                 if val:
-                    st.markdown(f'<div class="info-card"><h4>{label}</h4><div class="value">{val}</div></div>', unsafe_allow_html=True)
+                    st.markdown(f"**{label}:** {val}")
 
             mc1, mc2 = st.columns(2)
             mc1.metric("Doctor photo", "Yes" if analysis.get("has_doctor_photo") else "No")
@@ -408,7 +339,7 @@ def add_to_queue(items):
 
 
 # ── Variant Controls ──
-st.markdown('<div class="section-header"><h3>Variant Options</h3></div>', unsafe_allow_html=True)
+st.subheader("Variant Options")
 
 tab_color, tab_font, tab_text, tab_ratio, tab_doctor, tab_combo = st.tabs(
     ["Color", "Font", "Text & Translate", "Aspect Ratio", "Doctor", "Combo"]
@@ -649,12 +580,9 @@ if queue and not batch_id:
     est_batch = n * 3.50
 
     st.markdown(f"""
-    <div class="submit-section">
-        <h3 style="margin:0 0 0.5rem;color:#92400e;">Ready to generate</h3>
-        <p style="margin:0;color:#78350f;">
-            <strong>{n} variant(s)</strong> · Estimated: <strong>~₹{est_batch:.0f}</strong> (batch)
-            · Processing: 5–15 min
-        </p>
+    <div class="batch-card batch-submit">
+        <h3>Ready to generate</h3>
+        <p><strong>{n} variant(s)</strong> · Estimated: <strong>~₹{est_batch:.0f}</strong> (batch) · Processing: 5–15 min</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -760,15 +688,7 @@ if batch_id:
 
             success_count = sum(1 for r in results if r[2] is not None)
 
-            st.markdown(f"""
-            <div class="batch-processing">
-                <h3>✅ Batch Complete</h3>
-                <p style="margin:0;color:#065f46;">
-                    {success_count}/{len(results)} succeeded · {elapsed:.0f}s ·
-                    ₹{cost_inr:.2f} · {total_in}+{total_out} tokens
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.success(f"Batch Complete — {success_count}/{len(results)} succeeded · {elapsed:.0f}s · ₹{cost_inr:.2f} · {total_in}+{total_out} tokens")
 
             cols_per_row = min(3, max(1, len(results)))
             for row_start in range(0, len(results), cols_per_row):
@@ -798,14 +718,7 @@ if batch_id:
                 st.rerun()
 
         else:
-            st.markdown(f"""
-            <div class="batch-processing" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#93c5fd;">
-                <h3 style="color:#1e40af;">Processing...</h3>
-                <p style="margin:0;color:#1e3a5f;">
-                    {len(st.session_state.batch_jobs)} variants · {elapsed:.0f}s elapsed
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.info(f"Processing {len(st.session_state.batch_jobs)} variants... {elapsed:.0f}s elapsed")
             st.progress(min(elapsed / 600, 0.95))
             time.sleep(15)
             st.rerun()
@@ -821,7 +734,7 @@ if batch_id:
 confirmed = st.session_state.get("confirmed_jobs", [])
 if confirmed:
     st.markdown("---")
-    st.markdown('<div class="section-header"><h3>Generating...</h3></div>', unsafe_allow_html=True)
+    st.subheader("Generating...")
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     results = []
