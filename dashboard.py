@@ -32,7 +32,8 @@ from google.genai import types
 
 from src.pipeline.reference_analyzer import analyze_reference
 from src.pipeline.ai_compositor import (
-    generate_variant, COLOR_THEMES, FONT_PRESETS, ASPECT_RATIOS,
+    generate_variant, generate_with_verification,
+    COLOR_THEMES, FONT_PRESETS, ASPECT_RATIOS,
     _build_edit_prompt,
 )
 
@@ -593,6 +594,8 @@ if queue and not batch_id:
     </div>
     """, unsafe_allow_html=True)
 
+    verify_enabled = st.checkbox("Auto-verify & fix (adds ~₹0.03/image for QC)", value=True, key="verify_toggle")
+
     b1, b2 = st.columns(2)
     with b1:
         if st.button("🚀 Submit Batch", type="primary", use_container_width=True):
@@ -747,9 +750,23 @@ if confirmed:
     results = []
     progress = st.progress(0)
 
+    use_verify = st.session_state.get("verify_toggle", True)
+    status_area = st.empty()
+
     for idx, (category, label, changes, item_ref, item_analysis) in enumerate(confirmed):
         progress.progress(idx / len(confirmed), text=f"{label} ({idx+1}/{len(confirmed)})")
-        result = generate_variant(item_ref, item_analysis, changes, allowed_models=["gemini-3.1-flash-image"])
+
+        if use_verify:
+            def on_status(msg, _sa=status_area):
+                _sa.caption(msg)
+            result = generate_with_verification(
+                item_ref, item_analysis, changes,
+                max_retries=2, on_status=on_status,
+                allowed_models=["gemini-3.1-flash-image"],
+            )
+        else:
+            result = generate_variant(item_ref, item_analysis, changes, allowed_models=["gemini-3.1-flash-image"])
+
         if result.get("success"):
             img_bytes = result["output_bytes"]
             img = Image.open(BytesIO(img_bytes))
@@ -762,6 +779,7 @@ if confirmed:
         else:
             results.append((category, label, None, None, None, result))
 
+    status_area.empty()
     progress.progress(1.0, text="Done!")
 
     cols_per_row = min(3, max(1, len(results)))
@@ -772,7 +790,14 @@ if confirmed:
             with cols[i]:
                 if img:
                     st.image(img, caption=f"{category}: {label}", use_container_width=True)
-                    st.caption(f"{result.get('time_seconds', '?')}s · ₹{result.get('cost_inr', 0)}")
+                    v_info = ""
+                    if result.get("verification_attempts"):
+                        v_status = "✅" if result.get("verification_passed") else "⚠️"
+                        v_info = f" · {v_status} QC×{result['verification_attempts']}"
+                    if not result.get("verification_passed") and result.get("verification_issues"):
+                        for issue in result["verification_issues"]:
+                            st.warning(f"{issue['type']}: {issue['detail']}")
+                    st.caption(f"{result.get('time_seconds', '?')}s · ₹{result.get('cost_inr', 0)}{v_info}")
                     st.download_button("Download", data=img_bytes, file_name=save_name,
                                      mime="image/png", use_container_width=True, key=f"rt_dl_{row_start}_{i}")
                 else:

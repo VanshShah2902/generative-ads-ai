@@ -149,6 +149,174 @@ def _build_edit_prompt(analysis: dict, changes: dict) -> str:
     return "\n".join(parts)
 
 
+def verify_variant(
+    reference_bytes: bytes,
+    output_bytes: bytes,
+    analysis: dict,
+    changes: dict,
+    api_key: str = None,
+) -> dict:
+    """
+    Use Gemini Flash (text) to verify the generated variant.
+    Returns {"pass": bool, "issues": [...], "cost_inr": float}
+    """
+    import json as _json
+    api_key = api_key or os.getenv("GEMINI_API_KEY")
+    client = genai.Client(api_key=api_key)
+
+    ref_part = types.Part.from_bytes(data=reference_bytes, mime_type="image/png")
+    out_part = types.Part.from_bytes(data=output_bytes, mime_type="image/png")
+
+    expected_price = analysis.get("price", "")
+    expected_texts = {}
+    if "text" in changes:
+        expected_texts = changes["text"]
+    else:
+        for k in ["headline", "subheadline", "price", "cta_text", "offer_text"]:
+            v = analysis.get(k)
+            if v:
+                expected_texts[k] = v
+
+    check_prompt = f"""You are a quality control agent for advertisement image editing.
+
+Compare the ORIGINAL ad (Image 1) with the EDITED ad (Image 2).
+
+Check for these specific issues:
+
+1. PRODUCT PACKAGING: Has the product box/packaging changed in ANY way — colors, design, text, layout? The product box must be IDENTICAL between both images. Look carefully at the box colors, labels, and logos.
+
+2. PRICE ACCURACY: The price should be "{expected_price}". Is it exactly correct in the edited image? Check for digit changes, currency symbol issues, or missing text.
+
+3. TEXT ACCURACY: Check that these text fields are correct and properly spelled:
+{_json.dumps(expected_texts, ensure_ascii=False, indent=2)}
+Look for: wrong characters, missing words, garbled text, words that should NOT have been translated (like "sachet", "mg", brand names, ingredient names like "Arjun Chhal", "Ashwagadha", "Laung").
+
+4. UNTRANSLATABLE TERMS: If translation was applied, these should NEVER be translated: product name, brand name, ingredient names, unit measurements (mg, g, ml), English medical/scientific terms, "sachet"/"sachets".
+
+Return ONLY a JSON object:
+{{
+  "pass": true/false,
+  "issues": [
+    {{"type": "packaging_changed"|"price_wrong"|"text_error"|"bad_translation", "detail": "description"}}
+  ]
+}}
+
+If everything looks correct, return {{"pass": true, "issues": []}}.
+Be strict — flag anything that looks wrong."""
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[
+                "ORIGINAL AD (Image 1):", ref_part,
+                "EDITED AD (Image 2):", out_part,
+                check_prompt,
+            ],
+        )
+        raw = response.text.strip()
+        if raw.startswith("```"):
+            raw = raw.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        result = _json.loads(raw)
+
+        usage = getattr(response, "usage_metadata", None)
+        inp_t = getattr(usage, "prompt_token_count", 0) if usage else 0
+        out_t = getattr(usage, "candidates_token_count", 0) if usage else 0
+        cost_usd = (inp_t * 0.15 / 1_000_000) + (out_t * 0.60 / 1_000_000)
+        result["cost_inr"] = round(cost_usd * 84, 2)
+        result["verification_tokens"] = {"input": inp_t, "output": out_t}
+        return result
+    except Exception as e:
+        return {"pass": True, "issues": [], "cost_inr": 0, "error": str(e)}
+
+
+def _build_fix_prompt(analysis: dict, changes: dict, issues: list) -> str:
+    """Build a retry prompt that emphasizes the specific issues found."""
+    base = _build_edit_prompt(analysis, changes)
+
+    fix_lines = ["\n\n⚠️ CRITICAL FIXES REQUIRED — previous attempt had these errors:"]
+    for issue in issues:
+        itype = issue.get("type", "")
+        detail = issue.get("detail", "")
+        if itype == "packaging_changed":
+            fix_lines.append(f"- PRODUCT BOX WAS MODIFIED: {detail}")
+            fix_lines.append("  → The product box/packaging must be PIXEL-PERFECT identical to the original. Do NOT recolor, reshape, or alter the product box in ANY way.")
+        elif itype == "price_wrong":
+            fix_lines.append(f"- PRICE WAS WRONG: {detail}")
+            fix_lines.append(f"  → The price must be exactly: {analysis.get('price', '')}")
+        elif itype == "text_error":
+            fix_lines.append(f"- TEXT ERROR: {detail}")
+            fix_lines.append("  → Double-check every character of every text field.")
+        elif itype == "bad_translation":
+            fix_lines.append(f"- TRANSLATION ERROR: {detail}")
+            fix_lines.append("  → Do NOT translate: product names, brand names, ingredient names (Arjun Chhal, Ashwagadha, Laung), units (mg, g, sachets/sachet), or English scientific terms.")
+
+    return base + "\n".join(fix_lines)
+
+
+def generate_with_verification(
+    reference_path: str,
+    analysis: dict,
+    changes: dict,
+    api_key: str = None,
+    max_retries: int = 2,
+    on_status=None,
+    **kwargs,
+) -> dict:
+    """
+    Generate a variant, verify it, and retry with enhanced prompt if issues found.
+    on_status: optional callback(message: str) for progress updates.
+    Returns the same dict as generate_variant, plus verification_* fields.
+    """
+    with open(reference_path, "rb") as f:
+        ref_bytes = f.read()
+
+    total_verification_cost = 0
+    all_issues_log = []
+
+    for attempt in range(1 + max_retries):
+        if on_status:
+            if attempt == 0:
+                on_status("Generating variant...")
+            else:
+                on_status(f"Retry {attempt}/{max_retries} — fixing: {', '.join(i['type'] for i in issues)}")
+
+        if attempt == 0:
+            result = generate_variant(reference_path, analysis, changes, api_key, **kwargs)
+        else:
+            fixed_changes = dict(changes)
+            fixed_changes["_fix_prompt"] = _build_fix_prompt(analysis, changes, issues)
+            result = generate_variant(reference_path, analysis, fixed_changes, api_key, **kwargs)
+
+        if not result.get("success"):
+            return result
+
+        if on_status:
+            on_status("Verifying output...")
+
+        verification = verify_variant(ref_bytes, result["output_bytes"], analysis, changes, api_key)
+        total_verification_cost += verification.get("cost_inr", 0)
+
+        if verification.get("pass", True):
+            result["verification_passed"] = True
+            result["verification_attempts"] = attempt + 1
+            result["verification_cost_inr"] = total_verification_cost
+            result["cost_inr"] = round(result.get("cost_inr", 0) + total_verification_cost, 2)
+            return result
+
+        issues = verification.get("issues", [])
+        all_issues_log.extend(issues)
+
+        if attempt < max_retries and on_status:
+            on_status(f"Issues found: {[i['detail'] for i in issues]}")
+
+    result["verification_passed"] = False
+    result["verification_attempts"] = max_retries + 1
+    result["verification_cost_inr"] = total_verification_cost
+    result["verification_issues"] = all_issues_log
+    result["cost_inr"] = round(result.get("cost_inr", 0) + total_verification_cost, 2)
+    return result
+
+
 def generate_variant(
     reference_path: str,
     analysis: dict,
@@ -164,7 +332,10 @@ def generate_variant(
     api_key = api_key or os.getenv("GEMINI_API_KEY")
     client = genai.Client(api_key=api_key)
 
-    prompt = _build_edit_prompt(analysis, changes)
+    if "_fix_prompt" in changes:
+        prompt = changes.pop("_fix_prompt")
+    else:
+        prompt = _build_edit_prompt(analysis, changes)
 
     contents = [
         "REFERENCE AD IMAGE — edit this image according to the instructions below:",
