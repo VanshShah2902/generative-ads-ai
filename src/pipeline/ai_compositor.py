@@ -4,9 +4,27 @@ Sends the reference image + precise edit instructions to Gemini for production-q
 """
 
 import os
+import json
 import time
 from google import genai
 from google.genai import types
+
+LEARNED_FIXES_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "learned_fixes.json")
+
+
+def load_learned_fixes() -> list:
+    if os.path.exists(LEARNED_FIXES_PATH):
+        with open(LEARNED_FIXES_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def save_learned_fix(fix_description: str):
+    fixes = load_learned_fixes()
+    if fix_description not in fixes:
+        fixes.append(fix_description)
+        with open(LEARNED_FIXES_PATH, "w", encoding="utf-8") as f:
+            json.dump(fixes, f, indent=2, ensure_ascii=False)
 
 
 COLOR_THEMES = {
@@ -142,14 +160,25 @@ def _build_edit_prompt(analysis: dict, changes: dict) -> str:
         parts.append(f"\n⚠️ USER-REPORTED FIX: {changes['_user_fix']}")
         parts.append("Address this issue carefully in the output.\n")
 
+    # Add learned fixes from past user reports
+    learned = load_learned_fixes()
+    if learned:
+        parts.append("\n⚠️ KNOWN ISSUES TO AVOID (learned from past mistakes):")
+        for fix in learned:
+            parts.append(f"   - {fix}")
+        parts.append("")
+
     price_val = analysis.get("price", "")
+    headline = analysis.get("headline", "")
+    brand_name = analysis.get("brand_name", "") or headline.split("'s")[0] + "'s" if "'s" in headline else ""
+
     parts.append("CRITICAL RULES (MUST FOLLOW — violations make the output unusable):")
     parts.append("")
     parts.append("1. PRODUCT PACKAGING IS UNTOUCHABLE:")
     parts.append("   - The product box/packaging must be PIXEL-PERFECT identical to the original")
     parts.append("   - Do NOT change the box colors, even if doing a color theme change")
     parts.append("   - Do NOT change any text, logo, or image ON the product box")
-    parts.append("   - The box has its own green/gold/brown color scheme — keep it exactly as-is")
+    parts.append("   - The box has its own color scheme — keep it exactly as-is")
     parts.append("")
     parts.append("2. PRICE MUST BE EXACT:")
     if price_val:
@@ -162,7 +191,15 @@ def _build_edit_prompt(analysis: dict, changes: dict) -> str:
     parts.append("   - Copy text character-by-character — do not paraphrase or substitute words")
     parts.append("")
     parts.append("4. TRANSLATION RULES (if translating):")
-    parts.append("   - NEVER translate these: product name, brand name ('Dr Bimal's'), ingredient names (Arjun Chhal, Ashwagadha, Laung), units (mg, g, ml, sachets/sachet), 'Net Wt.', 'OFF'")
+    do_not_translate = ["product name", "brand name"]
+    if brand_name:
+        do_not_translate.append(f"'{brand_name}'")
+    extra_texts = analysis.get("extra_texts", [])
+    ingredient_names = [t for t in extra_texts if any(w in t.lower() for w in ["mg", "chhal", "ashwa", "laung", "tulsi", "arjun"])]
+    if ingredient_names:
+        do_not_translate.extend(ingredient_names)
+    do_not_translate.extend(["units (mg, g, ml, sachets/sachet)", "'Net Wt.'", "'OFF'"])
+    parts.append(f"   - NEVER translate these: {', '.join(do_not_translate)}")
     parts.append("   - 'sachet' and 'sachets' must remain in English")
     parts.append("   - Keep numbers and measurements exactly as-is")
     parts.append("")

@@ -34,7 +34,7 @@ from src.pipeline.reference_analyzer import analyze_reference
 from src.pipeline.ai_compositor import (
     generate_variant, generate_with_verification,
     COLOR_THEMES, FONT_PRESETS, ASPECT_RATIOS,
-    _build_edit_prompt,
+    _build_edit_prompt, save_learned_fix, load_learned_fixes,
 )
 
 LANGUAGES = {
@@ -818,6 +818,10 @@ if last_results:
     fix_desc = st.text_input("What's wrong?", placeholder="e.g. product box color changed, price shows 599 instead of 499, 'sachet' was translated to Hindi", key="fix_desc")
 
     if st.button("Regenerate with fix", type="primary", key="fix_btn") and fix_desc:
+        # Save this fix so ALL future generations avoid the same mistake
+        save_learned_fix(fix_desc)
+        st.toast(f"Learned: '{fix_desc}' — all future generations will avoid this")
+
         fix_item = last_results[fix_idx]
         fixed_changes = dict(fix_item["changes"])
         fixed_changes["_user_fix"] = fix_desc
@@ -842,3 +846,10 @@ if last_results:
             st.session_state.total_cost += fix_result.get("cost_inr", 0)
         else:
             st.error(f"Fix failed: {fix_result.get('error', 'Unknown')}")
+
+    # Show learned fixes
+    learned = load_learned_fixes()
+    if learned:
+        with st.expander(f"Learned rules ({len(learned)})"):
+            for i, fix in enumerate(learned):
+                st.write(f"{i+1}. {fix}")
