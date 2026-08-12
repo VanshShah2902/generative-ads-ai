@@ -68,13 +68,13 @@ def _build_edit_prompt(analysis: dict, changes: dict) -> str:
         color = changes["color"]
         if isinstance(color, str) and color in COLOR_THEMES:
             theme = COLOR_THEMES[color]
-            parts.append(f"COLOR CHANGE: Shift the entire ad's color scheme to {theme['desc']}.")
+            parts.append(f"COLOR CHANGE: Shift the ad's color scheme to {theme['desc']}.")
             parts.append(f"Primary color: {theme['primary']}, Secondary/accent: {theme['secondary']}.")
         elif isinstance(color, dict):
             desc = color.get("desc", "")
-            parts.append(f"COLOR CHANGE: Shift the entire ad's color scheme. Primary: {color.get('primary', '')}, Secondary: {color.get('secondary', '')}. {desc}")
-        parts.append("Recolor backgrounds, accents, decorative elements, and tints to match the new palette.")
-        parts.append("Keep product packaging, doctor/person photos, and food/drink items looking natural.")
+            parts.append(f"COLOR CHANGE: Shift the ad's color scheme. Primary: {color.get('primary', '')}, Secondary: {color.get('secondary', '')}. {desc}")
+        parts.append("ONLY recolor these: ad background, decorative borders/frames, text banner backgrounds, ornamental elements.")
+        parts.append("DO NOT recolor: the product box/packaging (keep its original green/gold/brown colors exactly), doctor/person photos, food/drink items, ingredient images.")
         parts.append("")
 
     if "font" in changes:
@@ -137,14 +137,39 @@ def _build_edit_prompt(analysis: dict, changes: dict) -> str:
         parts.append("ADD DOCTOR: Include the provided doctor/person image in the ad, positioned prominently.")
         parts.append("")
 
-    parts.append("CRITICAL RULES:")
-    parts.append("- Output MUST be a complete, production-ready advertisement image")
-    parts.append("- ALL text must be sharp, readable, and CORRECTLY SPELLED")
-    parts.append("- The PRODUCT BOX/PACKAGING must remain EXACTLY as it is — do NOT change its colors, design, text, layout, logos, or any element printed on the product packaging. The product box is sacred and untouchable.")
-    parts.append("- The doctor/person photo must remain exactly as it is — same face, same pose, same clothing")
-    parts.append("- Only change the AD BACKGROUND, AD TEXT, and AD DECORATIVE ELEMENTS — never the product itself")
-    parts.append("- Maintain professional advertising quality")
-    parts.append("- Do NOT add any watermarks, borders, or extra elements not in the original")
+    # Add user-reported fix instructions if present
+    if "_user_fix" in changes:
+        parts.append(f"\n⚠️ USER-REPORTED FIX: {changes['_user_fix']}")
+        parts.append("Address this issue carefully in the output.\n")
+
+    price_val = analysis.get("price", "")
+    parts.append("CRITICAL RULES (MUST FOLLOW — violations make the output unusable):")
+    parts.append("")
+    parts.append("1. PRODUCT PACKAGING IS UNTOUCHABLE:")
+    parts.append("   - The product box/packaging must be PIXEL-PERFECT identical to the original")
+    parts.append("   - Do NOT change the box colors, even if doing a color theme change")
+    parts.append("   - Do NOT change any text, logo, or image ON the product box")
+    parts.append("   - The box has its own green/gold/brown color scheme — keep it exactly as-is")
+    parts.append("")
+    parts.append("2. PRICE MUST BE EXACT:")
+    if price_val:
+        parts.append(f"   - The price must read exactly: {price_val}")
+    parts.append("   - Do NOT change any digit, currency symbol (₹), or decimal")
+    parts.append("   - Do NOT round, truncate, or modify the price in any way")
+    parts.append("")
+    parts.append("3. TEXT ACCURACY:")
+    parts.append("   - ALL text must be sharp, readable, and CORRECTLY SPELLED")
+    parts.append("   - Copy text character-by-character — do not paraphrase or substitute words")
+    parts.append("")
+    parts.append("4. TRANSLATION RULES (if translating):")
+    parts.append("   - NEVER translate these: product name, brand name ('Dr Bimal's'), ingredient names (Arjun Chhal, Ashwagadha, Laung), units (mg, g, ml, sachets/sachet), 'Net Wt.', 'OFF'")
+    parts.append("   - 'sachet' and 'sachets' must remain in English")
+    parts.append("   - Keep numbers and measurements exactly as-is")
+    parts.append("")
+    parts.append("5. OTHER:")
+    parts.append("   - The doctor/person photo must remain exactly as it is — same face, same pose, same clothing")
+    parts.append("   - Only change the AD BACKGROUND, AD TEXT, and AD DECORATIVE ELEMENTS — never the product itself")
+    parts.append("   - Do NOT add any watermarks, borders, or extra elements not in the original")
 
     return "\n".join(parts)
 

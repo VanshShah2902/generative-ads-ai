@@ -594,7 +594,7 @@ if queue and not batch_id:
     </div>
     """, unsafe_allow_html=True)
 
-    verify_enabled = st.checkbox("Auto-verify & fix (adds ~₹0.03/image for QC)", value=True, key="verify_toggle")
+    verify_enabled = st.checkbox("Auto-verify & fix (adds ~₹0.03 + retry cost per issue)", value=False, key="verify_toggle")
 
     b1, b2 = st.columns(2)
     with b1:
@@ -782,25 +782,63 @@ if confirmed:
     status_area.empty()
     progress.progress(1.0, text="Done!")
 
+    st.session_state["last_results"] = []
     cols_per_row = min(3, max(1, len(results)))
     for row_start in range(0, len(results), cols_per_row):
         row_items = results[row_start:row_start + cols_per_row]
         cols = st.columns(cols_per_row)
         for i, (category, label, img, img_bytes, save_name, result) in enumerate(row_items):
+            global_idx = row_start + i
             with cols[i]:
                 if img:
                     st.image(img, caption=f"{category}: {label}", use_container_width=True)
-                    v_info = ""
-                    if result.get("verification_attempts"):
-                        v_status = "✅" if result.get("verification_passed") else "⚠️"
-                        v_info = f" · {v_status} QC×{result['verification_attempts']}"
-                    if not result.get("verification_passed") and result.get("verification_issues"):
-                        for issue in result["verification_issues"]:
-                            st.warning(f"{issue['type']}: {issue['detail']}")
-                    st.caption(f"{result.get('time_seconds', '?')}s · ₹{result.get('cost_inr', 0)}{v_info}")
+                    st.caption(f"{result.get('time_seconds', '?')}s · ₹{result.get('cost_inr', 0)}")
                     st.download_button("Download", data=img_bytes, file_name=save_name,
                                      mime="image/png", use_container_width=True, key=f"rt_dl_{row_start}_{i}")
+                    st.session_state["last_results"].append({
+                        "category": category, "label": label,
+                        "ref_path": confirmed[global_idx][3],
+                        "analysis": confirmed[global_idx][4],
+                        "changes": confirmed[global_idx][2],
+                    })
                 else:
                     st.error(f"Failed: {result.get('error', 'Unknown')}")
 
     st.session_state.confirmed_jobs = []
+
+# ── Fix This ──
+last_results = st.session_state.get("last_results", [])
+if last_results:
+    st.markdown("---")
+    st.subheader("Fix an issue")
+    st.caption("See a problem? Describe it and regenerate with a targeted fix (~₹7)")
+
+    fix_options = [f"{r['category']}: {r['label']}" for r in last_results]
+    fix_idx = st.selectbox("Which image to fix?", range(len(fix_options)), format_func=lambda i: fix_options[i], key="fix_select")
+    fix_desc = st.text_input("What's wrong?", placeholder="e.g. product box color changed, price shows 599 instead of 499, 'sachet' was translated to Hindi", key="fix_desc")
+
+    if st.button("Regenerate with fix", type="primary", key="fix_btn") and fix_desc:
+        fix_item = last_results[fix_idx]
+        fixed_changes = dict(fix_item["changes"])
+        fixed_changes["_user_fix"] = fix_desc
+
+        with st.spinner(f"Fixing: {fix_desc}..."):
+            fix_result = generate_variant(
+                fix_item["ref_path"], fix_item["analysis"], fixed_changes,
+                allowed_models=["gemini-3.1-flash-image"],
+            )
+
+        if fix_result.get("success"):
+            fix_bytes = fix_result["output_bytes"]
+            fix_img = Image.open(BytesIO(fix_bytes))
+            fix_name = f"fix_{fix_item['category']}_{fix_item['label']}_{datetime.now().strftime('%H%M%S')}.png"
+            with open(os.path.join(OUTPUT_DIR, fix_name), "wb") as f:
+                f.write(fix_bytes)
+            st.image(fix_img, caption=f"Fixed: {fix_item['label']}", use_container_width=True)
+            st.caption(f"{fix_result.get('time_seconds', '?')}s · ₹{fix_result.get('cost_inr', 0)}")
+            st.download_button("Download fixed", data=fix_bytes, file_name=fix_name,
+                             mime="image/png", use_container_width=True, key="fix_dl")
+            st.session_state.gen_count += 1
+            st.session_state.total_cost += fix_result.get("cost_inr", 0)
+        else:
+            st.error(f"Fix failed: {fix_result.get('error', 'Unknown')}")
