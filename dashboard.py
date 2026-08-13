@@ -312,11 +312,11 @@ if ref_path and os.path.exists(ref_path):
             mc2.metric("Layout", analysis.get("layout_type", "—"))
 
             palette = analysis.get("color_palette", {})
-            if palette:
-                pcols = st.columns(len(palette))
-                for i, (k, v) in enumerate(palette.items()):
-                    if v:
-                        pcols[i].color_picker(k.title(), v, disabled=True, key=f"pal_{k}")
+            valid_palette = {k: v for k, v in palette.items() if v and isinstance(v, str) and v.startswith("#") and len(v) in (4, 7)}
+            if valid_palette:
+                pcols = st.columns(len(valid_palette))
+                for i, (k, v) in enumerate(valid_palette.items()):
+                    pcols[i].color_picker(k.title(), v, disabled=True, key=f"pal_{k}")
 
             extras = analysis.get("extra_texts", [])
             if extras:
@@ -634,7 +634,7 @@ if queue and not batch_id:
 
             st.session_state.batch_id = batch_job.name
             st.session_state.batch_status = str(batch_job.state)
-            st.session_state.batch_jobs = [(cat, label, changes) for uid, cat, label, changes, _, _ in queue]
+            st.session_state.batch_jobs = [(cat, label, changes, item_ref, item_analysis) for uid, cat, label, changes, item_ref, item_analysis in queue]
             st.session_state.batch_submit_time = time.time()
             st.session_state.queue = []
             st.rerun()
@@ -665,7 +665,7 @@ if batch_id:
             total_in = total_out = 0
 
             for i, resp in enumerate(batch_job.dest.inlined_responses):
-                cat, label, changes = st.session_state.batch_jobs[i]
+                cat, label, changes, b_ref, b_analysis = st.session_state.batch_jobs[i]
                 response = resp.response
                 usage = response.usage_metadata
                 inp_t = usage.prompt_token_count if usage else 0
@@ -699,6 +699,16 @@ if batch_id:
             success_count = sum(1 for r in results if r[2] is not None)
 
             st.success(f"Batch Complete — {success_count}/{len(results)} succeeded · {elapsed:.0f}s · ₹{cost_inr:.2f} · {total_in}+{total_out} tokens")
+
+            st.session_state["last_results"] = []
+            for idx_r, item in enumerate(results):
+                if item[2] is not None:
+                    cat, label, _, _, _, _, _ = item
+                    b_cat, b_label, b_changes, b_ref, b_analysis = st.session_state.batch_jobs[idx_r]
+                    st.session_state["last_results"].append({
+                        "category": cat, "label": label,
+                        "ref_path": b_ref, "analysis": b_analysis, "changes": b_changes,
+                    })
 
             cols_per_row = min(3, max(1, len(results)))
             for row_start in range(0, len(results), cols_per_row):
@@ -818,9 +828,27 @@ if last_results:
     fix_desc = st.text_input("What's wrong?", placeholder="e.g. product box color changed, price shows 599 instead of 499, 'sachet' was translated to Hindi", key="fix_desc")
 
     if st.button("Regenerate with fix", type="primary", key="fix_btn") and fix_desc:
-        # Save this fix so ALL future generations avoid the same mistake
-        save_learned_fix(fix_desc)
-        st.toast(f"Learned: '{fix_desc}' — all future generations will avoid this")
+        # Use LLM to refine user's error report into a clean prompt rule
+        with st.spinner("Understanding the issue..."):
+            try:
+                refine_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+                refine_resp = refine_client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=(
+                        f"A user reported this issue with an AI-generated ad variant:\n\n"
+                        f"\"{fix_desc}\"\n\n"
+                        f"Convert this into a single, clear instruction for the image generation AI. "
+                        f"Write it as a concise rule starting with 'Do NOT' or 'ALWAYS' or 'NEVER'. "
+                        f"Keep it under 30 words. No explanation, just the rule."
+                    ),
+                )
+                refined_rule = refine_resp.text.strip().strip('"')
+                st.session_state.total_cost += 0.01
+            except Exception:
+                refined_rule = fix_desc
+
+        save_learned_fix(refined_rule)
+        st.toast(f"Learned: {refined_rule}")
 
         fix_item = last_results[fix_idx]
         fixed_changes = dict(fix_item["changes"])
