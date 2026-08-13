@@ -832,14 +832,25 @@ if last_results:
         with st.spinner("Understanding the issue..."):
             try:
                 refine_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+                existing_rules = load_learned_fixes()
+                existing_str = "\n".join(f"- {r}" for r in existing_rules) if existing_rules else "None yet."
                 refine_resp = refine_client.models.generate_content(
                     model="gemini-2.5-flash",
                     contents=(
                         f"A user reported this issue with an AI-generated ad variant:\n\n"
                         f"\"{fix_desc}\"\n\n"
-                        f"Convert this into a single, clear instruction for the image generation AI. "
-                        f"Write it as a concise rule starting with 'Do NOT' or 'ALWAYS' or 'NEVER'. "
-                        f"Keep it under 30 words. No explanation, just the rule."
+                        f"Your job: convert this into a GENERALIZED rule for future image generations.\n\n"
+                        f"IMPORTANT:\n"
+                        f"- GENERALIZE the fix. If the user says 'Clove is misspelled', the rule should be about "
+                        f"'ALWAYS double-check spelling of all ingredient names' — NOT about 'Clove' specifically, "
+                        f"because the next image may have different ingredients.\n"
+                        f"- If the user says 'price changed to 599', the rule should be about preserving the exact "
+                        f"original price — NOT about the number 599 specifically.\n"
+                        f"- Think: what CATEGORY of error is this? Make a rule for the category, not the instance.\n"
+                        f"- If an existing rule already covers this category, respond with exactly: ALREADY_COVERED\n\n"
+                        f"Existing rules:\n{existing_str}\n\n"
+                        f"Write ONE concise rule (under 25 words) starting with 'ALWAYS' or 'NEVER'. "
+                        f"Or respond ALREADY_COVERED if an existing rule handles it. Nothing else."
                     ),
                 )
                 refined_rule = refine_resp.text.strip().strip('"')
@@ -847,8 +858,11 @@ if last_results:
             except Exception:
                 refined_rule = fix_desc
 
-        save_learned_fix(refined_rule)
-        st.toast(f"Learned: {refined_rule}")
+        if "ALREADY_COVERED" not in refined_rule:
+            save_learned_fix(refined_rule)
+            st.toast(f"New rule learned: {refined_rule}")
+        else:
+            st.toast("Existing rules already cover this — no new rule added")
 
         fix_item = last_results[fix_idx]
         fixed_changes = dict(fix_item["changes"])
