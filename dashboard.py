@@ -270,16 +270,19 @@ if run_analysis and ref_image_path:
         st.session_state.ref_path = ref_image_path
         st.toast("Loaded cached analysis")
     else:
-        with st.sidebar, st.spinner("Analyzing..."):
-            analysis_result = analyze_reference(ref_image_path)
-            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-            save_path = os.path.join(OUTPUT_DIR, f"analysis_{ts}.json")
-            with open(save_path, "w", encoding="utf-8") as f:
-                json.dump(analysis_result, f, indent=2, ensure_ascii=False)
-            st.session_state.analysis = analysis_result
-            st.session_state.ref_path = ref_image_path
-            st.session_state.total_cost += 0.03
-        st.toast("Analysis complete!")
+        try:
+            with st.sidebar, st.spinner("Analyzing..."):
+                analysis_result = analyze_reference(ref_image_path)
+                ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+                save_path = os.path.join(OUTPUT_DIR, f"analysis_{ts}.json")
+                with open(save_path, "w", encoding="utf-8") as f:
+                    json.dump(analysis_result, f, indent=2, ensure_ascii=False)
+                st.session_state.analysis = analysis_result
+                st.session_state.ref_path = ref_image_path
+                st.session_state.total_cost += 0.03
+            st.toast("Analysis complete!")
+        except Exception as e:
+            st.error(f"Analysis failed: {e}")
 
 analysis = st.session_state.analysis
 ref_path = st.session_state.ref_path or ref_image_path
