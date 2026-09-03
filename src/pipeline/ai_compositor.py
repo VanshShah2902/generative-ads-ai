@@ -28,19 +28,21 @@ def save_learned_fix(fix_description: str):
 
 
 COLOR_THEMES = {
-    "blue_medical": {"primary": "#1a5276", "secondary": "#85c1e9", "desc": "clinical blue, medical trust, cool blue tones"},
-    "red_vitality": {"primary": "#922b21", "secondary": "#f1948a", "desc": "energetic red, vitality, warm red tones"},
-    "purple_premium": {"primary": "#6c3483", "secondary": "#c39bd3", "desc": "rich purple, premium luxury, royal purple tones"},
-    "gold_luxury": {"primary": "#b7950b", "secondary": "#f4d03f", "desc": "golden luxury, premium gold, warm gold tones"},
-    "dark_modern": {"primary": "#1c1c2e", "secondary": "#e74c3c", "desc": "dark modern, sleek black with red accents"},
-    "teal_fresh": {"primary": "#148f77", "secondary": "#76d7c4", "desc": "fresh teal, natural green-blue, calming aqua tones"},
-    "forest_green": {"primary": "#1b4332", "secondary": "#95d5b2", "desc": "deep forest green, natural herbal, earthy green tones"},
-    "coral_warm": {"primary": "#c0392b", "secondary": "#f5b7b1", "desc": "warm coral pink, friendly and approachable, soft warm tones"},
-    "navy_classic": {"primary": "#0a1931", "secondary": "#b0c4de", "desc": "classic navy blue, corporate trust, deep blue with light steel accents"},
-    "orange_energy": {"primary": "#d35400", "secondary": "#f8c471", "desc": "vibrant orange, energy and enthusiasm, warm sunset tones"},
-    "maroon_ayurvedic": {"primary": "#641e16", "secondary": "#d4a373", "desc": "deep maroon with earthy tan, traditional ayurvedic, warm ethnic tones"},
-    "sky_wellness": {"primary": "#2980b9", "secondary": "#aed6f1", "desc": "bright sky blue, wellness and calm, light airy blue tones"},
-    "charcoal_minimal": {"primary": "#2c3e50", "secondary": "#ecf0f1", "desc": "charcoal grey, minimalist modern, clean monochrome with crisp whites"},
+    "pastel_blush": {"primary": "#f4c2c2", "secondary": "#fce4ec", "desc": "soft blush pink, gentle and feminine, delicate rose tones"},
+    "pastel_lavender": {"primary": "#c5b9e8", "secondary": "#ede7f6", "desc": "soft lavender purple, calming and elegant, light violet tones"},
+    "pastel_mint": {"primary": "#a8e6cf", "secondary": "#e0f7ef", "desc": "fresh mint green, clean and refreshing, cool herbal tones"},
+    "pastel_peach": {"primary": "#f8c9a0", "secondary": "#fff3e0", "desc": "warm peach, inviting and soft, gentle apricot tones"},
+    "pastel_sky": {"primary": "#a7d8f0", "secondary": "#e3f2fd", "desc": "light sky blue, airy and serene, soft cloud tones"},
+    "pastel_sage": {"primary": "#b2c9ab", "secondary": "#e8f0e5", "desc": "muted sage green, earthy and natural, organic wellness tones"},
+    "pastel_lilac": {"primary": "#d4a5d0", "secondary": "#f3e5f5", "desc": "gentle lilac, sophisticated and soft, light mauve tones"},
+    "pastel_buttercream": {"primary": "#f5e6a3", "secondary": "#fffde7", "desc": "soft buttercream yellow, warm and cheerful, light golden tones"},
+    "pastel_coral": {"primary": "#f4a8a0", "secondary": "#fce8e5", "desc": "soft coral, warm and approachable, muted salmon tones"},
+    "pastel_powder_blue": {"primary": "#b0c4de", "secondary": "#e8eef5", "desc": "powder blue, classic and trustworthy, gentle steel blue tones"},
+    "pastel_rose_gold": {"primary": "#e8b4b8", "secondary": "#fdf0f2", "desc": "rose gold, luxurious and premium, warm metallic pink tones"},
+    "pastel_seafoam": {"primary": "#a0d2c8", "secondary": "#e0f2ee", "desc": "soft seafoam, tranquil and fresh, ocean-inspired pastel tones"},
+    "pastel_mauve": {"primary": "#c9a9c7", "secondary": "#f0e4ef", "desc": "dusty mauve, vintage elegance, muted plum tones"},
+    "pastel_pistachio": {"primary": "#c6dea6", "secondary": "#f0f7e4", "desc": "light pistachio, natural and lively, fresh green tones"},
+    "pastel_champagne": {"primary": "#f0d9b5", "secondary": "#faf4eb", "desc": "champagne gold, understated luxury, warm neutral tones"},
 }
 
 FONT_PRESETS = {
