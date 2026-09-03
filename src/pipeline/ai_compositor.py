@@ -28,6 +28,7 @@ def save_learned_fix(fix_description: str):
 
 
 COLOR_THEMES = {
+    # --- Light Pastels ---
     "pastel_blush": {"primary": "#f4c2c2", "secondary": "#fce4ec", "desc": "soft blush pink, gentle and feminine, delicate rose tones"},
     "pastel_lavender": {"primary": "#c5b9e8", "secondary": "#ede7f6", "desc": "soft lavender purple, calming and elegant, light violet tones"},
     "pastel_mint": {"primary": "#a8e6cf", "secondary": "#e0f7ef", "desc": "fresh mint green, clean and refreshing, cool herbal tones"},
@@ -43,6 +44,33 @@ COLOR_THEMES = {
     "pastel_mauve": {"primary": "#c9a9c7", "secondary": "#f0e4ef", "desc": "dusty mauve, vintage elegance, muted plum tones"},
     "pastel_pistachio": {"primary": "#c6dea6", "secondary": "#f0f7e4", "desc": "light pistachio, natural and lively, fresh green tones"},
     "pastel_champagne": {"primary": "#f0d9b5", "secondary": "#faf4eb", "desc": "champagne gold, understated luxury, warm neutral tones"},
+    # --- Medium / Rich Tones ---
+    "deep_teal": {"primary": "#1a7a6d", "secondary": "#a3d9cf", "desc": "deep teal green, premium wellness, rich aqua with soft accent"},
+    "royal_plum": {"primary": "#6b3074", "secondary": "#c9a0d0", "desc": "rich plum purple, regal and luxurious, deep violet tones"},
+    "midnight_blue": {"primary": "#1b3a5c", "secondary": "#8fb3d9", "desc": "deep midnight blue, authoritative and premium, navy with steel blue accent"},
+    "burgundy_velvet": {"primary": "#6d1a36", "secondary": "#d4899e", "desc": "rich burgundy, velvety and luxurious, deep wine red tones"},
+    "emerald_rich": {"primary": "#1a6b4a", "secondary": "#8cc9a8", "desc": "rich emerald green, lush and premium, jewel-tone green"},
+    "terracotta": {"primary": "#b85c3a", "secondary": "#e8b99a", "desc": "warm terracotta, earthy and grounded, rich clay orange tones"},
+    "slate_blue": {"primary": "#4a6278", "secondary": "#a8c0d4", "desc": "sophisticated slate blue, modern and calm, muted blue-grey tones"},
+    "dusty_rose": {"primary": "#b5687a", "secondary": "#ddb3be", "desc": "dusty rose, romantic and warm, muted pink with depth"},
+    "olive_gold": {"primary": "#7a7a2e", "secondary": "#c8c98a", "desc": "olive gold, earthy warmth, natural green-gold tones"},
+    "steel_grey": {"primary": "#5a6872", "secondary": "#b8c4cc", "desc": "premium steel grey, modern minimalist, sophisticated neutral tones"},
+    "forest_moss": {"primary": "#3d5c3a", "secondary": "#9ab898", "desc": "deep forest moss, natural and organic, rich woodland green"},
+    "copper_rust": {"primary": "#a05a2c", "secondary": "#d4a87c", "desc": "warm copper, rustic premium, rich metallic orange-brown tones"},
+    "ocean_depth": {"primary": "#1a4b6e", "secondary": "#7fb3d4", "desc": "deep ocean blue, calm authority, rich marine tones"},
+    "mulberry": {"primary": "#7b3f5e", "secondary": "#c9949e", "desc": "rich mulberry, warm and luxurious, deep berry tones"},
+    "dark_sage": {"primary": "#5c705a", "secondary": "#adbdab", "desc": "dark sage green, grounded and mature, deep herbal tones"},
+    # --- Deep / Bold Premium ---
+    "charcoal_gold": {"primary": "#2c2c2c", "secondary": "#d4a855", "desc": "premium charcoal with gold accent, luxurious and bold, dark with warm metallic highlight"},
+    "navy_cream": {"primary": "#0f2240", "secondary": "#e8dcc8", "desc": "deep navy with cream accent, classic premium, dark blue with warm ivory"},
+    "black_rose": {"primary": "#1a1a2e", "secondary": "#c97b8b", "desc": "deep black-blue with rose accent, dramatic and elegant, dark with soft pink highlight"},
+    "espresso": {"primary": "#3c2415", "secondary": "#c4a882", "desc": "rich espresso brown, warm and premium, deep coffee tones with tan accent"},
+    "indigo_night": {"primary": "#2b1a4e", "secondary": "#9b82c4", "desc": "deep indigo, mysterious and premium, dark purple with soft violet accent"},
+    "dark_cherry": {"primary": "#4a1225", "secondary": "#c47a8e", "desc": "dark cherry red, bold and luxurious, deep wine with soft pink accent"},
+    "hunter_green": {"primary": "#1a3c2a", "secondary": "#7aad8e", "desc": "deep hunter green, classic and refined, rich forest with sage accent"},
+    "graphite_ice": {"primary": "#3a3f47", "secondary": "#b5c7d8", "desc": "dark graphite with icy blue accent, sleek modern premium, cool and sharp"},
+    "mahogany": {"primary": "#4e2a1a", "secondary": "#c49474", "desc": "rich mahogany brown, warm luxury, deep wood tones with caramel accent"},
+    "obsidian_teal": {"primary": "#1a2a2e", "secondary": "#5eafb0", "desc": "near-black with teal accent, bold and modern, dark base with vibrant aqua pop"},
 }
 
 FONT_PRESETS = {
